@@ -1,0 +1,66 @@
+﻿@model UMS_Project.Cohort
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cohort</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cohortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cohortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stream.streamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stream.streamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.firstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cohortID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
