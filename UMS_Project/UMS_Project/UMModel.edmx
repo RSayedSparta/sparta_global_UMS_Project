@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="User_ManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cohort">
+          <Key>
+            <PropertyRef Name="cohortID" />
+          </Key>
+          <Property Name="cohortID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cohortName" Type="varchar(max)" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+          <Property Name="hasTA" Type="bit" />
+          <Property Name="trainerName" Type="int" />
+          <Property Name="streamID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="varchar" MaxLength="50" />
+          <Property Name="roleDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Stream">
+          <Key>
+            <PropertyRef Name="streamID" />
+          </Key>
+          <Property Name="streamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="streamName" Type="varchar" MaxLength="50" />
+          <Property Name="specialization" Type="varchar" MaxLength="50" />
+          <Property Name="duration" Type="varchar(max)" />
+          <Property Name="curriculum" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="roleID" Type="int" Nullable="false" />
+          <Property Name="cohortID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Cohort__streamID__1A14E395">
+          <End Role="Stream" Type="Self.Stream" Multiplicity="1" />
+          <End Role="Cohort" Type="Self.Cohort" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stream">
+              <PropertyRef Name="streamID" />
+            </Principal>
+            <Dependent Role="Cohort">
+              <PropertyRef Name="streamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__roleID__173876EA">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_Cohort">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Cohort" Type="Self.Cohort" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Cohort">
+              <PropertyRef Name="trainerName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cohort">
+          <End Role="Cohort" Type="Self.Cohort" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cohort">
+              <PropertyRef Name="cohortID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="cohortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="User_ManagementDBModelStoreContainer">
+          <EntitySet Name="Cohort" EntityType="Self.Cohort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stream" EntityType="Self.Stream" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cohort__streamID__1A14E395" Association="Self.FK__Cohort__streamID__1A14E395">
+            <End Role="Stream" EntitySet="Stream" />
+            <End Role="Cohort" EntitySet="Cohort" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__roleID__173876EA" Association="Self.FK__Users__roleID__173876EA">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_Cohort" Association="Self.FK_Trainer_Cohort">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cohort" EntitySet="Cohort" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cohort" Association="Self.FK_Users_Cohort">
+            <End Role="Cohort" EntitySet="Cohort" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="User_ManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cohort">
+          <Key>
+            <PropertyRef Name="cohortID" />
+          </Key>
+          <Property Name="cohortID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cohortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+          <Property Name="hasTA" Type="Boolean" />
+          <Property Name="trainerName" Type="Int32" />
+          <Property Name="streamID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Stream" Relationship="Self.FK__Cohort__streamID__1A14E395" FromRole="Cohort" ToRole="Stream" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Trainer_Cohort" FromRole="Cohort" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Cohort" FromRole="Cohort" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="roleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__roleID__173876EA" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Stream">
+          <Key>
+            <PropertyRef Name="streamID" />
+          </Key>
+          <Property Name="streamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="streamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cohorts" Relationship="Self.FK__Cohort__streamID__1A14E395" FromRole="Stream" ToRole="Cohort" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="roleID" Type="Int32" Nullable="false" />
+          <Property Name="cohortID" Type="Int32" />
+          <NavigationProperty Name="Cohorts" Relationship="Self.FK_Trainer_Cohort" FromRole="Users" ToRole="Cohort" />
+          <NavigationProperty Name="Cohort" Relationship="Self.FK_Users_Cohort" FromRole="Users" ToRole="Cohort" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Users__roleID__173876EA" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK__Cohort__streamID__1A14E395">
+          <End Role="Stream" Type="Self.Stream" Multiplicity="1" />
+          <End Role="Cohort" Type="Self.Cohort" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stream">
+              <PropertyRef Name="streamID" />
+            </Principal>
+            <Dependent Role="Cohort">
+              <PropertyRef Name="streamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_Cohort">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cohort" Type="Self.Cohort" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Cohort">
+              <PropertyRef Name="trainerName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cohort">
+          <End Role="Cohort" Type="Self.Cohort" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cohort">
+              <PropertyRef Name="cohortID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="cohortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__roleID__173876EA">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="User_ManagementDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cohorts" EntityType="Self.Cohort" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Streams" EntityType="Self.Stream" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Cohort__streamID__1A14E395" Association="Self.FK__Cohort__streamID__1A14E395">
+            <End Role="Stream" EntitySet="Streams" />
+            <End Role="Cohort" EntitySet="Cohorts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_Cohort" Association="Self.FK_Trainer_Cohort">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cohort" EntitySet="Cohorts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cohort" Association="Self.FK_Users_Cohort">
+            <End Role="Cohort" EntitySet="Cohorts" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__roleID__173876EA" Association="Self.FK__Users__roleID__173876EA">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="User_ManagementDBModelStoreContainer" CdmEntityContainer="User_ManagementDBEntities">
+          <EntitySetMapping Name="Cohorts">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Cohort">
+              <MappingFragment StoreEntitySet="Cohort">
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+                <ScalarProperty Name="cohortName" ColumnName="cohortName" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="hasTA" ColumnName="hasTA" />
+                <ScalarProperty Name="trainerName" ColumnName="trainerName" />
+                <ScalarProperty Name="streamID" ColumnName="streamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Streams">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Stream">
+              <MappingFragment StoreEntitySet="Stream">
+                <ScalarProperty Name="streamID" ColumnName="streamID" />
+                <ScalarProperty Name="streamName" ColumnName="streamName" />
+                <ScalarProperty Name="specialization" ColumnName="specialization" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="curriculum" ColumnName="curriculum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
