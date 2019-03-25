@@ -137,7 +137,11 @@
     <Compile Include="Cohort.cs">
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CohortsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\StreamsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +224,26 @@
     <Content Include="UMModel.edmx.diagram">
       <DependentUpon>UMModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Cohorts\Create.cshtml" />
+    <Content Include="Views\Cohorts\Delete.cshtml" />
+    <Content Include="Views\Cohorts\Details.cshtml" />
+    <Content Include="Views\Cohorts\Edit.cshtml" />
+    <Content Include="Views\Cohorts\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Streams\Create.cshtml" />
+    <Content Include="Views\Streams\Delete.cshtml" />
+    <Content Include="Views\Streams\Details.cshtml" />
+    <Content Include="Views\Streams\Edit.cshtml" />
+    <Content Include="Views\Streams\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
