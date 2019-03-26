@@ -27,6 +27,15 @@
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.upassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passwordSalt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passwordHash)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Cohort.cohortName)
         </th>
         <th>
@@ -51,6 +60,15 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.upassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passwordSalt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passwordHash)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Cohort.cohortName)

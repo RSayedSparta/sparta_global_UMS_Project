@@ -15,6 +15,7 @@ namespace UMS_Project
     public partial class Trainer
     {
         public int trainerID { get; set; }
+        public string trainerName { get; set; }
         public int userID { get; set; }
         public int cohortID { get; set; }
     
