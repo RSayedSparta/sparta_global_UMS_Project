@@ -27,6 +27,10 @@
                     <li>@Html.ActionLink("Role", "Index", "Roles")</li>
                     <li>@Html.ActionLink("Stream", "Index", "Streams")</li>
                     <li>@Html.ActionLink("Cohort", "Index", "Cohorts")</li>
+                    @if (@Session["Email"] != null)
+                     {
+                        <li>Hello, @Session["Name"] @Session["Email"]</li>
+                     }
                 </ul>
             </div>
         </div>
