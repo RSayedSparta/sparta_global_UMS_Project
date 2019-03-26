@@ -33,11 +33,11 @@ namespace UMS_Project
         [Required]
         public string gender { get; set; }
         [Required]
-        [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to spartaglobal.")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
         public string email { get; set; }
         [Required]
-        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*/d)$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
         public string upassword { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
@@ -47,6 +47,8 @@ namespace UMS_Project
         public int cohortID { get; set; }
 
         //[NotMapped] 
+        //[Required]
+        //[RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
         //[Compare("Password")]
         //public string confirmPassword { get; set; }
 

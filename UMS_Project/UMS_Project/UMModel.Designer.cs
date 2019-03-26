@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 // T4 code generation is enabled for model 'C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-=======
-<<<<<<< HEAD
 
 ﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
 
-=======
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
->>>>>>> 9780a928a280771396c6b0f11aa004081c2c979a
->>>>>>> cf310a2ee6f8456fa7247b342428676ce0842128
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
