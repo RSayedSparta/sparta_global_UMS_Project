@@ -21,15 +21,15 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Streams/Details/5
-        public ActionResult Details(string streamName)
+        public ActionResult Details(int? id)
         {
-            if (streamName == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
-            //Match search result to Stream name
-            Stream stream = db.Streams.Single(s => s.streamName == streamName);
+
+            Stream stream = db.Streams.Find(id);
+            //Stream stream = db.Streams.Single(s => s.streamName == streamName);
 
             if (stream == null)
             {
