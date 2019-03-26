@@ -4,47 +4,62 @@
     <EntitySetMapping Name="Cohorts">
       <EntityTypeMapping TypeName="User_ManagementDBModel.Cohort">
         <MappingFragment StoreEntitySet="Cohort">
-          <ScalarProperty Name="cohortID" ColumnName="cohortID" />
-          <ScalarProperty Name="cohortName" ColumnName="cohortName" />
-          <ScalarProperty Name="startDate" ColumnName="startDate" />
-          <ScalarProperty Name="endDate" ColumnName="endDate" />
-          <ScalarProperty Name="hasTA" ColumnName="hasTA" />
-          <ScalarProperty Name="trainerName" ColumnName="trainerName" />
           <ScalarProperty Name="streamID" ColumnName="streamID" />
+          <ScalarProperty Name="minimumSeats" ColumnName="minimumSeats" />
+          <ScalarProperty Name="maximumSeats" ColumnName="maximumSeats" />
+          <ScalarProperty Name="clocation" ColumnName="clocation" />
+          <ScalarProperty Name="hasTA" ColumnName="hasTA" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="cohortName" ColumnName="cohortName" />
+          <ScalarProperty Name="cohortID" ColumnName="cohortID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="User_ManagementDBModel.Role">
         <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="roleID" ColumnName="roleID" />
-          <ScalarProperty Name="roleName" ColumnName="roleName" />
           <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Streams">
       <EntityTypeMapping TypeName="User_ManagementDBModel.Stream">
         <MappingFragment StoreEntitySet="Stream">
-          <ScalarProperty Name="streamID" ColumnName="streamID" />
-          <ScalarProperty Name="streamName" ColumnName="streamName" />
-          <ScalarProperty Name="specialization" ColumnName="specialization" />
-          <ScalarProperty Name="duration" ColumnName="duration" />
           <ScalarProperty Name="curriculum" ColumnName="curriculum" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="specialization" ColumnName="specialization" />
+          <ScalarProperty Name="streamName" ColumnName="streamName" />
+          <ScalarProperty Name="streamID" ColumnName="streamID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainers">
+      <EntityTypeMapping TypeName="User_ManagementDBModel.Trainer">
+        <MappingFragment StoreEntitySet="Trainer">
+          <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="trainerName" ColumnName="trainerName" />
+          <ScalarProperty Name="trainerID" ColumnName="trainerID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="User_ManagementDBModel.User">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="userID" ColumnName="userID" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="age" ColumnName="age" />
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="roleID" ColumnName="roleID" />
           <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
+          <ScalarProperty Name="passwordSalt" ColumnName="passwordSalt" />
+          <ScalarProperty Name="upassword" ColumnName="upassword" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
