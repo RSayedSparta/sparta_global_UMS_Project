@@ -11,6 +11,8 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Role
     {
@@ -21,7 +23,11 @@ namespace UMS_Project
         }
     
         public int roleID { get; set; }
+        [DisplayName("Role Name")]
+        [Required]
         public string roleName { get; set; }
+        [DisplayName("Role Description")]
+        [Required]
         public string roleDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
