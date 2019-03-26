@@ -12,6 +12,7 @@ namespace UMS_Project
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class Stream
     {
@@ -22,13 +23,13 @@ namespace UMS_Project
         }
 
         public int streamID { get; set; }
-        [DisplayName("Stream Name")]
+        [Display(Name = "Stream Name")]
         public string streamName { get; set; }
-        [DisplayName("Specialization")]
+        [Display(Name = "Specialization")]
         public string specialization { get; set; }
-        [DisplayName("Duration")]
+        [Display(Name = "Duration")]
         public string duration { get; set; }
-        [DisplayName("Curriculum")]
+        [Display(Name = "Curriculum")]
         public string curriculum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
