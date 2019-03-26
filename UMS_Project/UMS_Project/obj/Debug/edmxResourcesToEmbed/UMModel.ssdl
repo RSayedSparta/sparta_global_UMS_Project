@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="User_ManagementDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="User_ManagementDBModelStoreContainer">
+    <EntitySet Name="Cohorts" EntityType="User_ManagementDBModel.Store.Cohorts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="User_ManagementDBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Streams" EntityType="User_ManagementDBModel.Store.Streams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trainers" EntityType="User_ManagementDBModel.Store.Trainers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="User_ManagementDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Cohort__streamID__3A81B327" Association="User_ManagementDBModel.Store.FK__Cohort__streamID__3A81B327">
+      <End Role="Stream" EntitySet="Streams" />
+      <End Role="Cohort" EntitySet="Cohorts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trainer__cohortI__4222D4EF" Association="User_ManagementDBModel.Store.FK__Trainer__cohortI__4222D4EF">
+      <End Role="Cohort" EntitySet="Cohorts" />
+      <End Role="Trainer" EntitySet="Trainers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__cohortID__3E52440B" Association="User_ManagementDBModel.Store.FK__Users__cohortID__3E52440B">
+      <End Role="Cohort" EntitySet="Cohorts" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__roleID__3D5E1FD2" Association="User_ManagementDBModel.Store.FK__Users__roleID__3D5E1FD2">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trainer__userID__412EB0B6" Association="User_ManagementDBModel.Store.FK__Trainer__userID__412EB0B6">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Trainer" EntitySet="Trainers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cohorts">
+    <Key>
+      <PropertyRef Name="cohortID" />
+    </Key>
+    <Property Name="cohortID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cohortName" Type="varchar(max)" Nullable="true" />
+    <Property Name="startDate" Type="datetime" Nullable="true" />
+    <Property Name="endDate" Type="datetime" Nullable="true" />
+    <Property Name="hasTA" Type="bit" Nullable="true" />
+    <Property Name="clocation" Type="varchar(max)" Nullable="true" />
+    <Property Name="maximumSeats" Type="int" Nullable="true" />
+    <Property Name="minimumSeats" Type="int" Nullable="true" />
+    <Property Name="streamID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="roleDescription" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Streams">
+    <Key>
+      <PropertyRef Name="streamID" />
+    </Key>
+    <Property Name="streamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="streamName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="specialization" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="duration" Type="varchar(max)" Nullable="true" />
+    <Property Name="curriculum" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Trainers">
+    <Key>
+      <PropertyRef Name="trainerID" />
+    </Key>
+    <Property Name="trainerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trainerName" Type="varchar(max)" Nullable="true" />
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="cohortID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="lastName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="age" Type="int" Nullable="true" />
+    <Property Name="gender" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="email" Type="varchar(max)" Nullable="true" />
+    <Property Name="upassword" Type="varchar(max)" Nullable="true" />
+    <Property Name="passwordSalt" Type="varchar(max)" Nullable="true" />
+    <Property Name="passwordHash" Type="varchar(max)" Nullable="true" />
+    <Property Name="roleID" Type="int" Nullable="false" />
+    <Property Name="cohortID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Cohort__streamID__3A81B327">
+    <End Role="Stream" Type="User_ManagementDBModel.Store.Streams" Multiplicity="1" />
+    <End Role="Cohort" Type="User_ManagementDBModel.Store.Cohorts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stream">
+        <PropertyRef Name="streamID" />
+      </Principal>
+      <Dependent Role="Cohort">
+        <PropertyRef Name="streamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trainer__cohortI__4222D4EF">
+    <End Role="Cohort" Type="User_ManagementDBModel.Store.Cohorts" Multiplicity="1" />
+    <End Role="Trainer" Type="User_ManagementDBModel.Store.Trainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cohort">
+        <PropertyRef Name="cohortID" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="cohortID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__cohortID__3E52440B">
+    <End Role="Cohort" Type="User_ManagementDBModel.Store.Cohorts" Multiplicity="1" />
+    <End Role="User" Type="User_ManagementDBModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cohort">
+        <PropertyRef Name="cohortID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="cohortID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__roleID__3D5E1FD2">
+    <End Role="Role" Type="User_ManagementDBModel.Store.Roles" Multiplicity="1" />
+    <End Role="User" Type="User_ManagementDBModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="roleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trainer__userID__412EB0B6">
+    <End Role="User" Type="User_ManagementDBModel.Store.Users" Multiplicity="1" />
+    <End Role="Trainer" Type="User_ManagementDBModel.Store.Trainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
