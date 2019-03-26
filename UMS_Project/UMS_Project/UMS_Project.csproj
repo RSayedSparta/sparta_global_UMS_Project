@@ -141,6 +141,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StreamsController.cs" />
+    <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +151,9 @@
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Stream.cs">
+      <DependentUpon>UMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Trainer.cs">
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UMModel.Context.cs">
@@ -239,6 +243,11 @@
     <Content Include="Views\Streams\Details.cshtml" />
     <Content Include="Views\Streams\Edit.cshtml" />
     <Content Include="Views\Streams\Index.cshtml" />
+    <Content Include="Views\Trainers\Create.cshtml" />
+    <Content Include="Views\Trainers\Delete.cshtml" />
+    <Content Include="Views\Trainers\Details.cshtml" />
+    <Content Include="Views\Trainers\Edit.cshtml" />
+    <Content Include="Views\Trainers\Index.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
