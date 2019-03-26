@@ -132,5 +132,13 @@ namespace UMS_Project.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+
+        }
     }
 }
