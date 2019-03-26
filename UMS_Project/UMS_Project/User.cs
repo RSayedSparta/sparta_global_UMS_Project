@@ -11,7 +11,9 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,7 +33,14 @@ namespace UMS_Project
         public string passwordHash { get; set; }
         public int roleID { get; set; }
         public int cohortID { get; set; }
-    
+
+        [NotMapped] 
+        public string password { get; set; }
+
+        //[NotMapped] 
+        //[Compare("Password")]
+        //public string confirmPassword { get; set; }
+
         public virtual Cohort Cohort { get; set; }
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
