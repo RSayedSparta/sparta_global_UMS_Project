@@ -11,8 +11,10 @@
         <EntityTypeShape EntityType="User_ManagementDBModel.User" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Cohort__streamID__1A14E395" ManuallyRouted="false" />
         <AssociationConnector Association="User_ManagementDBModel.FK_Trainer_Cohort" ManuallyRouted="false" />
-        <AssociationConnector Association="User_ManagementDBModel.FK_Users_Cohort" ManuallyRouted="false" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__173876EA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Trainer" Width="1.5" PointX="7.5" PointY="2" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__cohortI__286302EC" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__276EDEB3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

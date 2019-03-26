@@ -137,7 +137,12 @@
     <Compile Include="Cohort.cs">
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CohortsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\StreamsController.cs" />
+    <Compile Include="Controllers\TrainersController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +151,9 @@
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Stream.cs">
+      <DependentUpon>UMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Trainer.cs">
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UMModel.Context.cs">
@@ -194,6 +202,7 @@
       <LastGenOutput>UMModel.Context.cs</LastGenOutput>
       <DependentUpon>UMModel.edmx</DependentUpon>
     </Content>
+    <Content Include="UMModel.edmx.sql" />
     <Content Include="UMModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UMModel.edmx</DependentUpon>
@@ -220,6 +229,31 @@
     <Content Include="UMModel.edmx.diagram">
       <DependentUpon>UMModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Cohorts\Create.cshtml" />
+    <Content Include="Views\Cohorts\Delete.cshtml" />
+    <Content Include="Views\Cohorts\Details.cshtml" />
+    <Content Include="Views\Cohorts\Edit.cshtml" />
+    <Content Include="Views\Cohorts\Index.cshtml" />
+    <Content Include="Views\Streams\Create.cshtml" />
+    <Content Include="Views\Streams\Delete.cshtml" />
+    <Content Include="Views\Streams\Details.cshtml" />
+    <Content Include="Views\Streams\Edit.cshtml" />
+    <Content Include="Views\Streams\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Trainers\Create.cshtml" />
+    <Content Include="Views\Trainers\Delete.cshtml" />
+    <Content Include="Views\Trainers\Details.cshtml" />
+    <Content Include="Views\Trainers\Edit.cshtml" />
+    <Content Include="Views\Trainers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

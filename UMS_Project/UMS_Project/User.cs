@@ -18,6 +18,7 @@ namespace UMS_Project
         public User()
         {
             this.Cohorts = new HashSet<Cohort>();
+            this.Trainers = new HashSet<Trainer>();
         }
     
         public int userID { get; set; }
@@ -28,10 +29,15 @@ namespace UMS_Project
         public string email { get; set; }
         public int roleID { get; set; }
         public Nullable<int> cohortID { get; set; }
+        public string password { get; set; }
+        public string passwordSalt { get; set; }
+        public string passwordHash { get; set; }
+        public Nullable<int> iterations { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cohort> Cohorts { get; set; }
-        public virtual Cohort Cohort { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Trainer> Trainers { get; set; }
     }
 }
