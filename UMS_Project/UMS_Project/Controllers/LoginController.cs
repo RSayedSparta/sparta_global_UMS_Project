@@ -40,11 +40,16 @@ namespace UMS_Project.Controllers
                 Session["Email"] = usr.email;
                 Session["Name"] = usr.firstName;
                 Session["Role"] = usr.roleID;
-                /*if (Session["Role"].ToString)
+                if (Session["Role"].ToString() == "1")
                 {
-
-                }*/
-                return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    Session["userID"] = usr.userID;
+                    return RedirectToAction("Details", "Users", user);
+                }
+                //return RedirectToAction("Index", "Home");
             }
         }
         // GET: Login/Details/5
