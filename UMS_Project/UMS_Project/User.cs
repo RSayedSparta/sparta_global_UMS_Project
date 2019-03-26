@@ -37,6 +37,8 @@ namespace UMS_Project
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
         public string email { get; set; }
         [Required]
+        [RegularExpression("^([A-Z]+)$", ErrorMessage = "Must contain at least one capital letter")]
+        [RegularExpression("^([a-z]+)$", ErrorMessage = "Must contain at least one capital letter")]
         public string upassword { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
