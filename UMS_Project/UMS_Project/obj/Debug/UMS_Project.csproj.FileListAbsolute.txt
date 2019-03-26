@@ -81,6 +81,7 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
+<<<<<<< HEAD
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -165,3 +166,6 @@ C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_U
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
+=======
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
+>>>>>>> fdfb3186ad5504e8d91784fcb3503ac1a5aa9b1b
