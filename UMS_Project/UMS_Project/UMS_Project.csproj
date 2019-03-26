@@ -202,6 +202,7 @@
       <LastGenOutput>UMModel.Context.cs</LastGenOutput>
       <DependentUpon>UMModel.edmx</DependentUpon>
     </Content>
+    <Content Include="UMModel.edmx.sql" />
     <Content Include="UMModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UMModel.edmx</DependentUpon>
