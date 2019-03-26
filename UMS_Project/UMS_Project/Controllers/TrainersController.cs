@@ -12,7 +12,7 @@ namespace UMS_Project.Controllers
 {
     public class TrainersController : Controller
     {
-        private User_ManagementDBEntities db = new User_ManagementDBEntities();
+        private User_ManagementDBEntities1 db = new User_ManagementDBEntities1();
 
         // GET: Trainers
         public ActionResult Index()
@@ -49,7 +49,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "trainerID,userID,cohortID")] Trainer trainer)
+        public ActionResult Create([Bind(Include = "trainerID,trainerName,userID,cohortID")] Trainer trainer)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "trainerID,userID,cohortID")] Trainer trainer)
+        public ActionResult Edit([Bind(Include = "trainerID,trainerName,userID,cohortID")] Trainer trainer)
         {
             if (ModelState.IsValid)
             {

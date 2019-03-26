@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ad73d122105411fb95287501b00c3f6" Name="Diagram1">
+        <EntityTypeShape EntityType="User_ManagementDBModel.Cohort" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Role" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Stream" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Trainer" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.User" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Cohort__streamID__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__cohortI__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Users__cohortID__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__1B0907CE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

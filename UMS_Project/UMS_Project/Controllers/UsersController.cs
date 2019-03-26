@@ -12,12 +12,12 @@ namespace UMS_Project.Controllers
 {
     public class UsersController : Controller
     {
-        private User_ManagementDBEntities db = new User_ManagementDBEntities();
+        private User_ManagementDBEntities1 db = new User_ManagementDBEntities1();
 
         // GET: Users
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.Role);
+            var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
             return View(users.ToList());
         }
 
@@ -39,6 +39,7 @@ namespace UMS_Project.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
             ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName");
             return View();
         }
@@ -48,7 +49,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,roleID,cohortID,password,passwordSalt,passwordHash,iterations")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +58,7 @@ namespace UMS_Project.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
             ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
             return View(user);
         }
@@ -73,6 +75,7 @@ namespace UMS_Project.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
             ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
             return View(user);
         }
@@ -82,7 +85,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,roleID,cohortID,password,passwordSalt,passwordHash,iterations")] User user)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +93,7 @@ namespace UMS_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
             ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
             return View(user);
         }

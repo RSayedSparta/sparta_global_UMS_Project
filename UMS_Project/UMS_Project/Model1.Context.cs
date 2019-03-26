@@ -13,10 +13,10 @@ namespace UMS_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class User_ManagementDBEntities : DbContext
+    public partial class User_ManagementDBEntities1 : DbContext
     {
-        public User_ManagementDBEntities()
-            : base("name=User_ManagementDBEntities")
+        public User_ManagementDBEntities1()
+            : base("name=User_ManagementDBEntities1")
         {
         }
     
@@ -28,8 +28,7 @@ namespace UMS_Project
         public virtual DbSet<Cohort> Cohorts { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Stream> Streams { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Trainer> Trainers { get; set; }
-        public virtual DbSet<Trainer1> Trainer1 { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -24,10 +24,16 @@
             @Html.DisplayNameFor(model => model.hasTA)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Stream.streamName)
+            @Html.DisplayNameFor(model => model.clocation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.firstName)
+            @Html.DisplayNameFor(model => model.maximumSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minimumSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stream.streamName)
         </th>
         <th></th>
     </tr>
@@ -47,10 +53,16 @@
             @Html.DisplayFor(modelItem => item.hasTA)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stream.streamName)
+            @Html.DisplayFor(modelItem => item.clocation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User.firstName)
+            @Html.DisplayFor(modelItem => item.maximumSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.minimumSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stream.streamName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.cohortID }) |

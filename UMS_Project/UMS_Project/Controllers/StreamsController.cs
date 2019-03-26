@@ -12,7 +12,7 @@ namespace UMS_Project.Controllers
 {
     public class StreamsController : Controller
     {
-        private User_ManagementDBEntities db = new User_ManagementDBEntities();
+        private User_ManagementDBEntities1 db = new User_ManagementDBEntities1();
 
         // GET: Streams
         public ActionResult Index()
