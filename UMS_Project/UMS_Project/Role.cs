@@ -25,6 +25,8 @@ namespace UMS_Project
         public int roleID { get; set; }
         [DisplayName("Role Name")]
         [Required]
+        //[RegularExpression("^[A-Z]+", ErrorMessage = "Must have 1 capital letter")]
+        [StringLength(50)]
         public string roleName { get; set; }
         [DisplayName("Role Description")]
         [Required]
