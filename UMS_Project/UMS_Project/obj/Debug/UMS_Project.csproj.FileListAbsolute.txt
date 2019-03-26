@@ -81,3 +81,4 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
