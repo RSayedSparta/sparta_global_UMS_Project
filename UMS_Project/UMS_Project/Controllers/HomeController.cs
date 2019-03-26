@@ -10,7 +10,14 @@ namespace UMS_Project.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["Email"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         public ActionResult About()
