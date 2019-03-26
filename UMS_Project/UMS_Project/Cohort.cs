@@ -18,6 +18,7 @@ namespace UMS_Project
         public Cohort()
         {
             this.Trainers = new HashSet<Trainer>();
+            this.Users = new HashSet<User>();
         }
     
         public int cohortID { get; set; }
@@ -25,12 +26,15 @@ namespace UMS_Project
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<System.DateTime> endDate { get; set; }
         public Nullable<bool> hasTA { get; set; }
-        public Nullable<int> trainerName { get; set; }
+        public string clocation { get; set; }
+        public Nullable<int> maximumSeats { get; set; }
+        public Nullable<int> minimumSeats { get; set; }
         public int streamID { get; set; }
     
         public virtual Stream Stream { get; set; }
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }
