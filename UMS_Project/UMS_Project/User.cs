@@ -21,21 +21,29 @@ namespace UMS_Project
         {
             this.Trainers = new HashSet<Trainer>();
         }
-    
+        
+        
         public int userID { get; set; }
+        [Required]
         public string firstName { get; set; }
+        [Required]
         public string lastName { get; set; }
+        [Required]
         public Nullable<int> age { get; set; }
+        [Required]
         public string gender { get; set; }
+        [Required]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to spartaglobal.")]
+        [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
         public string email { get; set; }
+        [Required]
         public string upassword { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
+        [Required]
         public int roleID { get; set; }
+        [Required]
         public int cohortID { get; set; }
-
-        [NotMapped] 
-        public string password { get; set; }
 
         //[NotMapped] 
         //[Compare("Password")]
