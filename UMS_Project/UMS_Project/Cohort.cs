@@ -18,30 +18,22 @@ namespace UMS_Project
         public Cohort()
         {
             this.Trainers = new HashSet<Trainer>();
+            this.Trainers1 = new HashSet<Trainer1>();
         }
     
         public int cohortID { get; set; }
-        [required]
         public string cohortName { get; set; }
-        [required]
         public Nullable<System.DateTime> startDate { get; set; }
-        [required]
         public Nullable<System.DateTime> endDate { get; set; }
-        [required]
         public Nullable<bool> hasTA { get; set; }
-        [required]
         public Nullable<int> trainerName { get; set; }
         public int streamID { get; set; }
     
-        [required]
         public virtual Stream Stream { get; set; }
-        [required]
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
-
-        private class requiredAttribute : Attribute
-        {
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Trainer1> Trainers1 { get; set; }
     }
 }

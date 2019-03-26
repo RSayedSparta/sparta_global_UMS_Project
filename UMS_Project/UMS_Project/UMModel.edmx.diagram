@@ -15,6 +15,9 @@
         <EntityTypeShape EntityType="User_ManagementDBModel.Trainer" Width="1.5" PointX="7.5" PointY="2" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__cohortI__286302EC" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__276EDEB3" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Trainer1" Width="1.5" PointX="7.5" PointY="0.75" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__cohortI__4222D4EF" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__412EB0B6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
