@@ -21,18 +21,21 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Streams/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string streamName)
         {
-            if (id == null)
+            if (streamName == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Stream stream = db.Streams.Find(id);
+            
+            //Match search result to Stream name
+            Stream stream = db.Streams.Single(s => s.streamName == streamName);
+
             if (stream == null)
             {
                 return HttpNotFound();
             }
-            return View(stream);
+            return View("Details", stream);
         }
 
         // GET: Streams/Create
