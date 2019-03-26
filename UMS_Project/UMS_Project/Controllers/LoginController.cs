@@ -20,7 +20,28 @@ namespace UMS_Project.Controllers
             var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
             return View(users.ToList());
         }
+        //GET: Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+        //POST: Login
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
 
+            User usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email) && u.upassword.Equals(user.upassword));
+            if (usr == null)
+            {
+                return RedirectToAction("Create", "Users");
+            }
+            else
+            {
+                Session["Email"] = usr.email;
+                Session["Name"] = usr.firstName;
+                return RedirectToAction("Index", "Home");
+            }
+        }
         // GET: Login/Details/5
         public ActionResult Details(int? id)
         {
