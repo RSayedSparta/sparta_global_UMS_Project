@@ -36,6 +36,7 @@ namespace UMS_Project
         [Required]
         [DisplayName("Has a TA")]
         public Nullable<bool> hasTA { get; set; }
+<<<<<<< HEAD
         [Required]
         [DisplayName("Location")]
         public string clocation { get; set; }
@@ -46,6 +47,11 @@ namespace UMS_Project
         [DisplayName("Min Capacity")]
         public Nullable<int> minimumSeats { get; set; }
         [Required]
+=======
+        public string clocation { get; set; }
+        public Nullable<int> maximumSeats { get; set; }
+        public Nullable<int> minimumSeats { get; set; }
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
         public int streamID { get; set; }
     
         public virtual Stream Stream { get; set; }

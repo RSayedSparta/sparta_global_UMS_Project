@@ -12,7 +12,11 @@ namespace UMS_Project.Controllers
 {
     public class RolesController : Controller
     {
+<<<<<<< HEAD
         private User_ManagementDBEntities1 db = new User_ManagementDBEntities1();
+=======
+        private User_ManagementDBEntities db = new User_ManagementDBEntities();
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
 
         // GET: Roles
         public ActionResult Index()

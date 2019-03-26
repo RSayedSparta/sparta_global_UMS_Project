@@ -10,120 +10,137 @@ using UMS_Project;
 
 namespace UMS_Project.Controllers
 {
-    public class TrainersController : Controller
+    public class LoginController : Controller
     {
-<<<<<<< HEAD
-        private User_ManagementDBEntities1 db = new User_ManagementDBEntities1();
-=======
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
->>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
 
-        // GET: Trainers
+        // GET: Login
         public ActionResult Index()
         {
-            var trainers = db.Trainers.Include(t => t.Cohort).Include(t => t.User);
-            return View(trainers.ToList());
+            var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
+            return View(users.ToList());
         }
+        //GET: Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+        //POST: Login
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
 
-        // GET: Trainers/Details/5
+            User usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email) && u.upassword.Equals(user.upassword));
+            if (usr == null)
+            {
+                return RedirectToAction("Create", "Users");
+            }
+            else
+            {
+                Session["Email"] = usr.email;
+                Session["Name"] = usr.firstName;
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        // GET: Login/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trainer trainer = db.Trainers.Find(id);
-            if (trainer == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(trainer);
+            return View(user);
         }
 
-        // GET: Trainers/Create
+        // GET: Login/Create
         public ActionResult Create()
         {
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName");
+            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName");
             return View();
         }
 
-        // POST: Trainers/Create
+        // POST: Login/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "trainerID,trainerName,userID,cohortID")] Trainer trainer)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Trainers.Add(trainer);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
-            return View(trainer);
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+            return View(user);
         }
 
-        // GET: Trainers/Edit/5
+        // GET: Login/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trainer trainer = db.Trainers.Find(id);
-            if (trainer == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
-            return View(trainer);
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+            return View(user);
         }
 
-        // POST: Trainers/Edit/5
+        // POST: Login/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "trainerID,trainerName,userID,cohortID")] Trainer trainer)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(trainer).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
-            return View(trainer);
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+            return View(user);
         }
 
-        // GET: Trainers/Delete/5
+        // GET: Login/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trainer trainer = db.Trainers.Find(id);
-            if (trainer == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(trainer);
+            return View(user);
         }
 
-        // POST: Trainers/Delete/5
+        // POST: Login/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Trainer trainer = db.Trainers.Find(id);
-            db.Trainers.Remove(trainer);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

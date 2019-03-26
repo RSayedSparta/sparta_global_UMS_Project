@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD:UMS_Project/UMS_Project/Model1.edmx.diagram
       <Diagram DiagramId="6ad73d122105411fb95287501b00c3f6" Name="Diagram1">
         <EntityTypeShape EntityType="User_ManagementDBModel.Cohort" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="User_ManagementDBModel.Role" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
@@ -15,6 +16,19 @@
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__cohortID__182C9B23" ManuallyRouted="false" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__173876EA" ManuallyRouted="false" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__1B0907CE" ManuallyRouted="false" />
+=======
+      <Diagram DiagramId="9a391514cdc44f6d8601b36b47fa49cf" Name="Diagram1">
+        <EntityTypeShape EntityType="User_ManagementDBModel.Cohort" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Role" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Stream" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Trainer" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.User" Width="1.5" PointX="8.25" PointY="2.75" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Cohort__streamID__3A81B327" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__cohortI__4222D4EF" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Users__cohortID__3E52440B" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__3D5E1FD2" />
+        <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__412EB0B6" />
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0:UMS_Project/UMS_Project/UMModel.edmx.diagram
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

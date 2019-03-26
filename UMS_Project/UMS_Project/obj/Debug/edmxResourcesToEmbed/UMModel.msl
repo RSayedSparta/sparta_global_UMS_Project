@@ -9,7 +9,13 @@
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="endDate" ColumnName="endDate" />
           <ScalarProperty Name="hasTA" ColumnName="hasTA" />
+<<<<<<< HEAD
           <ScalarProperty Name="trainerName" ColumnName="trainerName" />
+=======
+          <ScalarProperty Name="clocation" ColumnName="clocation" />
+          <ScalarProperty Name="maximumSeats" ColumnName="maximumSeats" />
+          <ScalarProperty Name="minimumSeats" ColumnName="minimumSeats" />
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
           <ScalarProperty Name="streamID" ColumnName="streamID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -34,6 +40,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.User)">
         <MappingFragment StoreEntitySet="Users">
@@ -41,17 +48,39 @@
           <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
           <ScalarProperty Name="passwordSalt" ColumnName="passwordSalt" />
           <ScalarProperty Name="password" ColumnName="password" />
+=======
+    <EntitySetMapping Name="Trainers">
+      <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Trainer)">
+        <MappingFragment StoreEntitySet="Trainers">
+          <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+          <ScalarProperty Name="trainerName" ColumnName="trainerName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="lastName" ColumnName="lastName" />
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="email" ColumnName="email" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="upassword" ColumnName="upassword" />
+          <ScalarProperty Name="passwordSalt" ColumnName="passwordSalt" />
+          <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
           <ScalarProperty Name="roleID" ColumnName="roleID" />
           <ScalarProperty Name="cohortID" ColumnName="cohortID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <EntitySetMapping Name="Trainers">
       <EntityTypeMapping TypeName="User_ManagementDBModel.Trainer">
         <MappingFragment StoreEntitySet="Trainer">
@@ -61,5 +90,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+=======
+>>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
   </EntityContainerMapping>
 </Mapping>
