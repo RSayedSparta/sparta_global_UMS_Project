@@ -10,112 +10,116 @@ using UMS_Project;
 
 namespace UMS_Project.Controllers
 {
-    public class CohortsController : Controller
+    public class TrainersController : Controller
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
-        // GET: Cohorts
+        // GET: Trainers
         public ActionResult Index()
         {
-            var cohorts = db.Cohorts.Include(c => c.Stream);
-            return View(cohorts.ToList());
+            var trainers = db.Trainers.Include(t => t.Cohort).Include(t => t.User);
+            return View(trainers.ToList());
         }
 
-        // GET: Cohorts/Details/5
+        // GET: Trainers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cohort cohort = db.Cohorts.Find(id);
-            if (cohort == null)
+            Trainer trainer = db.Trainers.Find(id);
+            if (trainer == null)
             {
                 return HttpNotFound();
             }
-            return View(cohort);
+            return View(trainer);
         }
 
-        // GET: Cohorts/Create
+        // GET: Trainers/Create
         public ActionResult Create()
         {
-            ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName");
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
+            ViewBag.userID = new SelectList(db.Users, "userID", "firstName");
             return View();
         }
 
-        // POST: Cohorts/Create
+        // POST: Trainers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "cohortID,cohortName,startDate,endDate,hasTA,clocation,maximumSeats,minimumSeats,streamID")] Cohort cohort)
+        public ActionResult Create([Bind(Include = "trainerID,trainerName,userID,cohortID")] Trainer trainer)
         {
             if (ModelState.IsValid)
             {
-                db.Cohorts.Add(cohort);
+                db.Trainers.Add(trainer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
-            return View(cohort);
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
+            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
+            return View(trainer);
         }
 
-        // GET: Cohorts/Edit/5
+        // GET: Trainers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cohort cohort = db.Cohorts.Find(id);
-            if (cohort == null)
+            Trainer trainer = db.Trainers.Find(id);
+            if (trainer == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
-            return View(cohort);
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
+            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
+            return View(trainer);
         }
 
-        // POST: Cohorts/Edit/5
+        // POST: Trainers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "cohortID,cohortName,startDate,endDate,hasTA,clocation,maximumSeats,minimumSeats,streamID")] Cohort cohort)
+        public ActionResult Edit([Bind(Include = "trainerID,trainerName,userID,cohortID")] Trainer trainer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cohort).State = EntityState.Modified;
+                db.Entry(trainer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
-            return View(cohort);
+            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
+            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
+            return View(trainer);
         }
 
-        // GET: Cohorts/Delete/5
+        // GET: Trainers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cohort cohort = db.Cohorts.Find(id);
-            if (cohort == null)
+            Trainer trainer = db.Trainers.Find(id);
+            if (trainer == null)
             {
                 return HttpNotFound();
             }
-            return View(cohort);
+            return View(trainer);
         }
 
-        // POST: Cohorts/Delete/5
+        // POST: Trainers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cohort cohort = db.Cohorts.Find(id);
-            db.Cohorts.Remove(cohort);
+            Trainer trainer = db.Trainers.Find(id);
+            db.Trainers.Remove(trainer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -77,7 +77,6 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CoreCompileInputs.cache
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
