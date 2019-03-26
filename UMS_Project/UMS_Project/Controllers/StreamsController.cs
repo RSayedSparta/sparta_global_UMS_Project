@@ -27,12 +27,15 @@ namespace UMS_Project.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Stream stream = db.Streams.Find(id);
+            //Stream stream = db.Streams.Single(s => s.streamName == streamName);
+
             if (stream == null)
             {
                 return HttpNotFound();
             }
-            return View(stream);
+            return View("Details", stream);
         }
 
         // GET: Streams/Create
