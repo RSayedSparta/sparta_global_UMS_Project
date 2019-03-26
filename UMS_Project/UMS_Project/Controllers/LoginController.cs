@@ -40,15 +40,15 @@ namespace UMS_Project.Controllers
                 Session["Email"] = usr.email;
                 Session["Name"] = usr.firstName;
                 Session["Role"] = usr.roleID;
-                Session["ID"] = usr.userID;
                 if (Session["Role"].ToString() == "1")
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Users");
                 }
                 else
                 {
-                    //User u = db.Users.Find
-                    return RedirectToAction("Details", "Users", 2);
+                    int id = usr.userID;
+                    User u = db.Users.Find(id);
+                    return RedirectToAction("Details","Users", u);
                 }
                 //return RedirectToAction("Index", "Home");
             }
