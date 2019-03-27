@@ -35,8 +35,8 @@
                             <ul>
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
-                                    List<UMS_Project.Stream> str = db.Streams.ToList();
-                                    foreach (var item in str)
+                                    var query = db.Streams.OrderBy(s => s.streamName);
+                                    foreach (var item in query)
                                     {
                                         string name = item.streamName;
                                         <li>@Html.ActionLink((@name).ToString(), "Details", "Streams", new { id = item.streamID }, null)</li>
