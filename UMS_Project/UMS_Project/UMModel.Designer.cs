@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+﻿// T4 code generation is enabled for model 'C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+=======
 
 <<<<<<< HEAD
 =======
