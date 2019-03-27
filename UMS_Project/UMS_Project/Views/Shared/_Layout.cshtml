@@ -10,14 +10,12 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="navbar-header" role="banner">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img src="~/Content/spartaglobal.png" class="img-responsive" title="logo" alt="" />
+                </a>
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -37,10 +35,10 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-                                @model UMS_Project.Stream
+                                @*@model UMS_Project.Stream
                                 @{
                                     foreach
-                                }
+                                }*@
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
