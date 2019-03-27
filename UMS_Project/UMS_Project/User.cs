@@ -43,7 +43,7 @@ namespace UMS_Project
         public string passwordHash { get; set; }
         [Required]
         public int roleID { get; set; }
-        [Required]
+        //[Required]
         public int cohortID { get; set; }
 
         //[NotMapped] 
