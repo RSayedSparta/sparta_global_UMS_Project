@@ -134,9 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AuthData\AuthAttribute.cs" />
     <Compile Include="Cohort.cs">
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AuthDataAttribute.cs" />
     <Compile Include="Controllers\CohortsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />

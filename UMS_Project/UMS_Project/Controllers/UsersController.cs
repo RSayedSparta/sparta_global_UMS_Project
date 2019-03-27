@@ -16,6 +16,7 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Users
+        [AuthData]
         public ActionResult Index()
         {
             var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
