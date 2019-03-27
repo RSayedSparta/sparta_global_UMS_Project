@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
@@ -55,6 +56,26 @@ namespace UMS_Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
+            byte[] GenerateSalt(int length)
+            {
+                var bytes = new byte[length];
+
+                using (var rng = new RNGCryptoServiceProvider())
+                {
+                    rng.GetBytes(bytes);
+                }
+
+                return bytes;
+            }
+
+            byte[] GenerateHash(byte[] password, byte[] salt, int iterations, int length)
+            {
+                using (var deriveBytes = new Rfc2898DeriveBytes(password, salt, iterations))
+                {
+                    return deriveBytes.GetBytes(length);
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);

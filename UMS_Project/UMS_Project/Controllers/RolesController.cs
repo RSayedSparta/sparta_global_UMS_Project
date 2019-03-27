@@ -23,6 +23,12 @@ namespace UMS_Project.Controllers
         {
             return View(db.Roles.ToList());
         }
+        // GET: Roles
+        public ActionResult Roles()
+        {
+            return View();
+        }
+        
 
         // GET: Roles/Details/5
         public ActionResult Details(int? id)

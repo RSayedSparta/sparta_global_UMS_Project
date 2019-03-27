@@ -3,12 +3,33 @@
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- Date Created: 03/26/2019 09:48:25
 -- Generated from EDMX file: C:\Users\tech-w100a\Desktop\Engineering26\week10\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
+=======
+<<<<<<< HEAD
+-- Date Created: 03/26/2019 13:56:56
+-- Generated from EDMX file: C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
+=======
+<<<<<<< HEAD
+-- Date Created: 03/26/2019 14:49:36
+-- Generated from EDMX file: C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
+>>>>>>> cf310a2ee6f8456fa7247b342428676ce0842128
+>>>>>>> 74380dc004887ac894cbe2e72ea7f5a2759ac0e2
 =======
 -- Date Created: 03/26/2019 14:07:59
 -- Generated from EDMX file: C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
 >>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+-- Date Created: 03/26/2019 14:07:59
+-- Generated from EDMX file: C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
+>>>>>>> 9780a928a280771396c6b0f11aa004081c2c979a
+>>>>>>> cf310a2ee6f8456fa7247b342428676ce0842128
+>>>>>>> 74380dc004887ac894cbe2e72ea7f5a2759ac0e2
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
