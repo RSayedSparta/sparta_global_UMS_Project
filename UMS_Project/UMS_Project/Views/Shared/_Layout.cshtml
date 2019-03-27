@@ -8,12 +8,17 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header" role="banner">
-                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                    <img src="~/Content/spartaglobal.png" class="img-responsive" title="logo" alt="" />
-                </a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                        <img src="~/Content/spartaglobal1.png" />
+                    </a>
             </div>
 
             <div class="navbar-collapse collapse">
@@ -31,18 +36,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-<<<<<<< HEAD
-
-                                @*@model UMS_Project.Stream
-                                @{
-                                    foreach
-                                }*@
-
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
-=======
->>>>>>> 22bdccba2b4894fc81554ef4a18a7f865f69512e
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
@@ -55,15 +51,19 @@
                             </ul>
                         </div>
                     </li>
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
                     @if (@Session["Email"] != null)
                     {
                         <li><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
                     }
-                    <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                 </ul>
+
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />

@@ -22,14 +22,21 @@ namespace UMS_Project
             this.Users = new HashSet<User>();
         }
         [Required]
-        [Display ]
+
         public int cohortID { get; set; }
+        [Display(Name = "Name of Cohort")]
         public string cohortName { get; set; }
+        [Display(Name = "Start Date")]
         public Nullable<System.DateTime> startDate { get; set; }
+        [Display(Name = "End Date")]
         public Nullable<System.DateTime> endDate { get; set; }
+        [Display(Name = "Has Teaching Assistant")]
         public Nullable<bool> hasTA { get; set; }
+        [Display(Name = "Academy Location")]
         public string clocation { get; set; }
+        [Display(Name = "Maximum no. of seats")]
         public Nullable<int> maximumSeats { get; set; }
+        [Display(Name = "Minimum no. of seats")]
         public Nullable<int> minimumSeats { get; set; }
         public int streamID { get; set; }
     
