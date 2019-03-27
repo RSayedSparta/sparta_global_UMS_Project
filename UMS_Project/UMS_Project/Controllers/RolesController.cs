@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
+using PagedList;
+
 
 namespace UMS_Project.Controllers
 {
@@ -14,11 +16,27 @@ namespace UMS_Project.Controllers
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
+        public object Search_Data { get; private set; }
+        public object Filter_Value { get; private set; }
+        public int PageNo { get; private set; }
+
         // GET: Roles
-        public ActionResult Index(string SortingOrder)
+        public ActionResult Index(string SortingOrder, string Search_Data, string Filter_Value, int? PageNo)
         {
+            ViewBag.CurrentSort = SortingOrder;
             ViewBag.SortingName = String.IsNullOrEmpty(SortingOrder) ? "Name_Description" : "";
             ViewBag.SortingDescription = String.IsNullOrEmpty(SortingOrder) ? "Description_Description" : "";
+
+            if (Search_Data != null)
+            {
+                PageNo = 1;
+            }
+            else
+            {
+                Search_Data = Filter_Value;
+            }
+
+            ViewBag.FilterValue = Search_Data;
 
             var roles = from role in db.Roles select role;
             switch (SortingOrder)
@@ -33,7 +51,10 @@ namespace UMS_Project.Controllers
                     roles = roles.OrderBy(role => role.roleName);
                     break;
             }
-            return View(db.Roles.ToList());
+            int Size_Of_Page = 10;
+            int No_Of_Page = PageNo ?? 1;
+            return View(roles.ToPagedList(No_Of_Page, Size_Of_Page));
+            //return View(db.Roles.ToList());
         }
         // GET: Roles
         public ActionResult Roles()

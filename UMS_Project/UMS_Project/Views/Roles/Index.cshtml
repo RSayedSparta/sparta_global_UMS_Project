@@ -1,40 +1,57 @@
-﻿@model IEnumerable<UMS_Project.Role>
+﻿@model PagedList.IPagedList<UMS_Project.Role>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Role";
 }
 
-<h2>Index</h2>
+<h2>Role</h2>
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Role", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Role Name","Index", new { Sorting_Order = ViewBag.SortingName })
+            @Html.ActionLink("Role Name", "Index", new { Sorting_Order = ViewBag.SortingName })
         </th>
+        
         <th>
-            @Html.ActionLink("Role Description","Index", new { Sorting_Order = ViewBag.SortingDescription })
+            @Html.ActionLink("Role Description", "Index", new { Sorting_Order = ViewBag.SortingDescription })
         </th>
-        <th></th>
+       
     </tr>
-    
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.roleName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.roleDescription)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.roleID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.roleID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.roleID })
-                </td>
-            </tr>
-         } 
 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.roleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.roleDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.roleID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.roleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.roleID })
+            </td>
+        </tr>
+    }
+    <br />
 </table>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, PageNo =>Url.Action("Index",
+        new { PageNo, SortingOrder= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
