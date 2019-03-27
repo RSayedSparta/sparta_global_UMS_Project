@@ -53,27 +53,14 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
-            byte[] GenerateSalt(int length)
-            {
-                var bytes = new byte[length];
 
-                using (var rng = new RNGCryptoServiceProvider())
-                {
-                    rng.GetBytes(bytes);
-                }
+            string salt = PasswordSecurity.GenerateSalt(4);
+            user.passwordSalt = salt;
 
-                return bytes;
-            }
-
-            byte[] GenerateHash(byte[] password, byte[] salt, int iterations, int length)
-            {
-                using (var deriveBytes = new Rfc2898DeriveBytes(password, salt, iterations))
-                {
-                    return deriveBytes.GetBytes(length);
-                }
-            }
+            string hash = PasswordSecurity.GenerateHash(user.password, salt);
+            user.passwordHash = hash;
 
             if (ModelState.IsValid)
             {
@@ -110,8 +97,15 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
+
+            string salt = PasswordSecurity.GenerateSalt(4);
+            user.passwordSalt = salt;
+
+            string hash = PasswordSecurity.GenerateHash(user.password, salt);
+            user.passwordHash = hash;
+
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;

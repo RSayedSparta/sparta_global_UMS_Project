@@ -31,7 +31,11 @@
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
+<<<<<<< HEAD
+            @Html.DisplayNameFor(model => model.password)
+=======
             @Html.DisplayNameFor(model => model.upassword)
+>>>>>>> 27207772cc45460432e831b52f56b088c845a29f
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Cohort.cohortName)
@@ -43,6 +47,40 @@
     </tr>
 >>>>>>> 27207772cc45460432e831b52f56b088c845a29f
 
+<<<<<<< HEAD
+=======
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cohort.cohortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role.roleName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
+        </td>
+    </tr>
+}
+>>>>>>> a6fb5d7f0b0f912680ee7ea752076a746353bba4
 
     @using (Html.BeginForm())
     {
