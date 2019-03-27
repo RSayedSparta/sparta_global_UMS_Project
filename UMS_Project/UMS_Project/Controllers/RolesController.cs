@@ -24,19 +24,15 @@ namespace UMS_Project.Controllers
             switch (SortingOrder)
             {
                 case "Name_Description":
-                    roles = roles.OrderByDescending(role => role.Name);
+                    roles = roles.OrderByDescending(role => role.roleName);
                     break;
-                case "Date_Enroll":
-                    students = students.OrderBy(stu => stu.EnrollmentDate);
-                    break;
-                case "Date_Description":
-                    students = students.OrderByDescending(stu => stu.EnrollmentDate);
+                case "Description":
+                    roles = roles.OrderBy(role => role.roleDescription);
                     break;
                 default:
-                    students = students.OrderBy(stu => stu.FirstName);
+                    roles = roles.OrderBy(role => role.roleName);
                     break;
             }
-
             return View(db.Roles.ToList());
         }
         // GET: Roles
