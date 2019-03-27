@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
+using UMS_Project.AuthData;
 
 namespace UMS_Project.Controllers
 {
+    [AuthorizationFilter]
     public class CohortsController : Controller
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();

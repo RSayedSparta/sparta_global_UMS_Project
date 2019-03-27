@@ -7,11 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
+<<<<<<< HEAD
 using PagedList;
 
+=======
+using UMS_Project.AuthData;
+>>>>>>> fff49ef23cfe1a0e4642565015f960351e738e87
 
 namespace UMS_Project.Controllers
 {
+    [AuthorizationFilter]
     public class RolesController : Controller
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
