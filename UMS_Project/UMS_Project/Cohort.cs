@@ -40,6 +40,7 @@ namespace UMS_Project
         public Nullable<int> maximumSeats { get; set; }
         [DisplayName("Min capacity")]
         public Nullable<int> minimumSeats { get; set; }
+        [Required]
         public int streamID { get; set; }
     
         public virtual Stream Stream { get; set; }
