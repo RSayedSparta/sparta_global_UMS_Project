@@ -15,8 +15,28 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Roles
-        public ActionResult Index()
+        public ActionResult Index(string SortingOrder)
         {
+            ViewBag.SortingName = String.IsNullOrEmpty(SortingOrder) ? "Name_Description" : "";
+            ViewBag.SortingDescription = String.IsNullOrEmpty(SortingOrder) ? "Description_Description" : "";
+
+            var roles = from role in db.Roles select role;
+            switch (SortingOrder)
+            {
+                case "Name_Description":
+                    roles = roles.OrderByDescending(role => role.Name);
+                    break;
+                case "Date_Enroll":
+                    students = students.OrderBy(stu => stu.EnrollmentDate);
+                    break;
+                case "Date_Description":
+                    students = students.OrderByDescending(stu => stu.EnrollmentDate);
+                    break;
+                default:
+                    students = students.OrderBy(stu => stu.FirstName);
+                    break;
+            }
+
             return View(db.Roles.ToList());
         }
         // GET: Roles
