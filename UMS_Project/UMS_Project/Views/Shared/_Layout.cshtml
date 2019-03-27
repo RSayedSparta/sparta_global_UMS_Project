@@ -25,6 +25,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("User", "Index", "Users")</li>
                     <li>@Html.ActionLink("Role", "Index", "Roles")</li>
+                    <li>@Html.ActionLink("Stream", "Index", "Streams")</li>
                     <li>@Html.ActionLink("Cohort", "Index", "Cohorts")</li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,14 +35,17 @@
                             <ul>
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
-                                    List<UMS_Project.Stream> str = db.Streams.ToList();
-                                    foreach (var item in str)
+                                    var query = db.Streams.OrderBy(s => s.streamName);
+                                    foreach (var item in query)
                                     {
                                         string name = item.streamName;
-                                        <li>@Html.ActionLink((@name).ToString(),"Details", "Streams", new { id = item.streamID }, null)</li>
+                                        <li>@Html.ActionLink((@name).ToString(), "Details", "Streams", new { id = item.streamID }, null)</li>
                                     }
                                 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22bdccba2b4894fc81554ef4a18a7f865f69512e
                             </ul>
                         </div>
                     </li>
