@@ -11,7 +11,9 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,11 +22,21 @@ namespace UMS_Project
             this.Trainers = new HashSet<Trainer>();
         }
     
+        [Required]
         public int userID { get; set; }
+        [Required]
+        [DisplayName("First Name")]
         public string firstName { get; set; }
+        [Required]
+        [DisplayName("Last Name")]
         public string lastName { get; set; }
+        [DisplayName("Age")]
         public Nullable<int> age { get; set; }
+        [Required]
+        [DisplayName("Gender")]
         public string gender { get; set; }
+        [Required]
+        [DisplayName("email")]
         public string email { get; set; }
         public string upassword { get; set; }
         public string passwordSalt { get; set; }
