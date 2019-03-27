@@ -35,4 +35,5 @@ namespace UMS_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cohort> Cohorts { get; set; }
     }
+ 
 }

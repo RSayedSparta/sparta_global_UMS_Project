@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
-using System.Web;
 using System.Web.Mvc;
-using UMS_Project;
 
 namespace UMS_Project.Controllers
 {
@@ -154,5 +151,30 @@ namespace UMS_Project.Controllers
             }
             base.Dispose(disposing);
         }
+        [ActionName("Sort")]
+        public ActionResult Index(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            var Users = from s in db.Users
+                        select s;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    Users = Users.OrderByDescending(s => s.firstName);
+                    break;
+                case "lname_desc":
+                    Users = Users.OrderBy(s => s.lastName);
+                    break;
+                case "age":
+                    Users = Users.OrderByDescending(s => s.age);
+                    break;
+                default:
+                    Users = Users.OrderBy(s => s.lastName);
+                    break;
+            }
+            return View(Users.ToList());
+        }
     }
+
 }
