@@ -25,28 +25,30 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("User", "Index", "Users")</li>
                     <li>@Html.ActionLink("Role", "Index", "Roles")</li>
-                    <li>@Html.ActionLink("Stream", "Index", "Streams")</li>
                     <li>@Html.ActionLink("Cohort", "Index", "Cohorts")</li>
-                    @if (@Session["Email"] != null)
-                    {
-                        <li><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
-                    }
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Streams List
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-                                @model UMS_Project.Stream
                                 @{
-                                    foreach
+                                    User_ManagementDBEntities db = new User_ManagementDBEntities();
+                                    List<UMS_Project.Stream> str = db.Streams.ToList();
+                                    foreach (var item in str)
+                                    {
+                                        string name = item.streamName;
+                                        <li>@Html.ActionLink((@name).ToString(),"Details", "Streams", new { id = item.streamID }, null)</li>
+                                    }
                                 }
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+
                             </ul>
                         </div>
                     </li>
+                    @if (@Session["Email"] != null)
+                    {
+                        <li><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
+                    }
                     <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
                 </ul>
             </div>
