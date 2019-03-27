@@ -25,8 +25,13 @@
         <div class="form-group">
             @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+<<<<<<< HEAD
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+=======
                 @Html.PasswordFor(model => model.upassword, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.upassword, "", new { @class = "text-danger" })
+>>>>>>> 27207772cc45460432e831b52f56b088c845a29f
             </div>
         </div>
 
