@@ -1,9 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+// T4 code generation is enabled for model 'C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+
+﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+>>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
 
 
 ﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
 
 
+<<<<<<< HEAD
+=======
+﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+
+>>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
 =======
 
 ﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'.
