@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -418,6 +419,8 @@ C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UM
 C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
 C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
 
+=======
+>>>>>>> bb8e1377e7f86f38131acd23f116570f7027ebcc
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
