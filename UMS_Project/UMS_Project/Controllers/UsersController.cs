@@ -53,9 +53,12 @@ namespace UMS_Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
-            user.password.T
-            PasswordSecurity.GenerateSalt(3);
-            PasswordSecurity.GenerateHash(user.password,)
+
+            string salt = PasswordSecurity.GenerateSalt(4);
+            user.passwordSalt = salt;
+
+            string hash = PasswordSecurity.GenerateHash(user.password, salt);
+            user.passwordHash = hash;
 
             if (ModelState.IsValid)
             {
@@ -91,8 +94,15 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
+
+            string salt = PasswordSecurity.GenerateSalt(4);
+            user.passwordSalt = salt;
+
+            string hash = PasswordSecurity.GenerateHash(user.password, salt);
+            user.passwordHash = hash;
+
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;

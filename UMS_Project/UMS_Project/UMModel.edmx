@@ -83,7 +83,6 @@
     <Property Name="age" Type="int" Nullable="true" />
     <Property Name="gender" Type="varchar" Nullable="true" MaxLength="50" />
     <Property Name="email" Type="varchar(max)" Nullable="true" />
-    <Property Name="upassword" Type="varchar(max)" Nullable="true" />
     <Property Name="passwordSalt" Type="varchar(max)" Nullable="true" />
     <Property Name="passwordHash" Type="varchar(max)" Nullable="true" />
     <Property Name="roleID" Type="int" Nullable="false" />
@@ -238,7 +237,6 @@
           <Property Name="age" Type="Int32" />
           <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="upassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="passwordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="passwordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="roleID" Type="Int32" Nullable="false" />
@@ -367,7 +365,6 @@
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="upassword" ColumnName="upassword" />
           <ScalarProperty Name="passwordSalt" ColumnName="passwordSalt" />
           <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
           <ScalarProperty Name="roleID" ColumnName="roleID" />

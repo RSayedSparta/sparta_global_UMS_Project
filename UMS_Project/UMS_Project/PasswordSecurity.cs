@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace UMS_Project
 {
     public class PasswordSecurity
     {
+        public static string ByteArrayToString(byte[] ba)
+        {
+            return BitConverter.ToString(ba).Replace("-", "");
+        }
+
         public static string GenerateSalt(int length)
         {
             var rng = new RNGCryptoServiceProvider();
@@ -16,12 +22,14 @@ namespace UMS_Project
             return Convert.ToBase64String(buff);
         }
 
-        public static byte[] GenerateHash(byte[] password, byte[] salt, int iterations, int length)
+        public static string GenerateHash(string input, string salt)
         {
-            using (var deriveBytes = new Rfc2898DeriveBytes(password, salt, iterations))
-            {
-                return deriveBytes.GetBytes(length);
-            }
+            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
+            SHA256Managed sha256hashstring = new SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+
+            return ByteArrayToString(hash);
         }
+
     }
 }

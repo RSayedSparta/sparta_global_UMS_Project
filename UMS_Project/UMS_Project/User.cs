@@ -37,14 +37,11 @@ namespace UMS_Project
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
         public string email { get; set; }
-        //[Required]
-        //[RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter, one number and have at least characters")]
-        //public string upassword { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
         [Required]
         public int roleID { get; set; }
-        //[Required]
+        [Required]
         public int cohortID { get; set; }
 
         [NotMapped] 
