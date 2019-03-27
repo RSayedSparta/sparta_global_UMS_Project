@@ -1,7 +1,21 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+// T4 code generation is enabled for model 'C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+
+﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+
+
+﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+
+
+﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
+
+>>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
 =======
 
 ﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'.
+>>>>>>> bb8e1377e7f86f38131acd23f116570f7027ebcc
 
 >>>>>>> bb8e1377e7f86f38131acd23f116570f7027ebcc
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer

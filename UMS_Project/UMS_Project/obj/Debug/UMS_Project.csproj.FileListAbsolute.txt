@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -166,6 +167,8 @@ C:\Users\tech-w83a.LAPTOP-HAUEFCC3\Engineering26\week11\sparta_global_UMS_Projec
 C:\Users\tech-w83a.LAPTOP-HAUEFCC3\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\tech-w83a.LAPTOP-HAUEFCC3\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
 C:\Users\tech-w83a.LAPTOP-HAUEFCC3\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
+=======
+>>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -245,10 +248,15 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+<<<<<<< HEAD
+=======
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
+>>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CoreCompileInputs.cache
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
+<<<<<<< HEAD
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\tech-w86.LAPTOP-3ALVMOF3\Documents\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -421,6 +429,9 @@ C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UM
 
 =======
 >>>>>>> bb8e1377e7f86f38131acd23f116570f7027ebcc
+=======
+=======
+>>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -508,3 +519,4 @@ C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
 
 C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
+>>>>>>> bb8e1377e7f86f38131acd23f116570f7027ebcc
