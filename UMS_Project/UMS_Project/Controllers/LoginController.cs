@@ -37,6 +37,7 @@ namespace UMS_Project.Controllers
             }
             else
             {
+                //Admin directed to user list table
                 Session["Email"] = usr.email;
                 Session["Name"] = usr.firstName;
                 Session["Role"] = usr.roleID;
@@ -46,11 +47,9 @@ namespace UMS_Project.Controllers
                 }
                 else
                 {
-                    int id = usr.userID;
-                    User u = db.Users.Find(id);
-                    return RedirectToAction("Details","Users", u);
+                    //user directed to own details 
+                    return View("Details", usr);
                 }
-                //return RedirectToAction("Index", "Home");
             }
         }
         // GET: Login/Details/5
