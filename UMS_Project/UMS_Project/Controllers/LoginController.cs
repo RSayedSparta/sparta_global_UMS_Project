@@ -30,8 +30,18 @@ namespace UMS_Project.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
+            User usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email));
+            if(usr.passwordSalt == null)
+            {
+                return RedirectToAction("Create", "Users");
+            }
 
-            User usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email) && u.upassword.Equals(user.upassword));
+            string salt = usr.passwordSalt;
+
+            string hash = PasswordSecurity.GenerateHash(user.password, salt);
+            user.passwordHash = hash;
+
+            usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email) && u.passwordHash.Equals(user.passwordHash));
             if (usr == null)
             {
                 return RedirectToAction("Create", "Users");
@@ -82,7 +92,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -118,7 +128,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
             if (ModelState.IsValid)
             {
