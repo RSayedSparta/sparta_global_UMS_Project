@@ -23,6 +23,7 @@ namespace UMS_Project.Controllers
         //GET: Login
         public ActionResult Login()
         {
+            Session["Role"] = 0;
             return View();
         }
         //POST: Login

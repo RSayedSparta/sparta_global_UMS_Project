@@ -6,8 +6,9 @@
 </head>
 <body>
     <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
+        <h1>Oops!</h1>
+        <h2>Sorry you do not have the authority to access this page.</h2>
     </hgroup>
+    @Html.ActionLink("Go back to details","Details","Login", new { id = Session["ID"] },null)
 </body>
 </html>

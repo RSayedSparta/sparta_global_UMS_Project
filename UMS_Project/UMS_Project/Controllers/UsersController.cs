@@ -7,7 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
-using UMS_Project;
+using UMS_Project.AuthData;
 
 namespace UMS_Project.Controllers
 {
@@ -16,7 +16,7 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Users
-        [AuthData]
+        [AuthorizationFilter]
         public ActionResult Index()
         {
             var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
@@ -39,6 +39,7 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Users/Create
+
         public ActionResult Create()
         {
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
@@ -86,6 +87,7 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Users/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -121,6 +123,7 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Users/Delete/5
+        [AuthorizationFilter]
         public ActionResult Delete(int? id)
         {
             if (id == null)
