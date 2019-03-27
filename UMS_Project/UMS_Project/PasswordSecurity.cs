@@ -10,14 +10,10 @@ namespace UMS_Project
     {
         public static string GenerateSalt(int length)
         {
-            var bytes = new byte[length];
-
-            using (var rng = new RNGCryptoServiceProvider())
-            {
-                rng.GetBytes(bytes);
-            }
-
-            return Convert.ToBase64String(bytes);
+            var rng = new RNGCryptoServiceProvider();
+            var buff = new byte[length];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
         }
 
         public static byte[] GenerateHash(byte[] password, byte[] salt, int iterations, int length)
