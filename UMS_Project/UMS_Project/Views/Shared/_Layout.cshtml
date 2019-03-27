@@ -30,26 +30,15 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                                @*@model UMS_Project.Stream*@
 
-=======
-<<<<<<< HEAD
->>>>>>> f369a50fc3aa243455c8edf9b61fc51ed8fbb7df
                                 @*@model UMS_Project.Stream
                                 @{
                                     foreach
                                 }*@
-<<<<<<< HEAD
-=======
->>>>>>> f24352c78123a27a71cc30da9ef56eac3486784b
->>>>>>> f369a50fc3aa243455c8edf9b61fc51ed8fbb7df
+
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
-=======
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     List<UMS_Project.Stream> str = db.Streams.ToList();
@@ -59,8 +48,6 @@
                                         <li>@Html.ActionLink((@name).ToString(),"Details", "Streams", new { id = item.streamID }, null)</li>
                                     }
                                 }
-
->>>>>>> bb8e1377e7f86f38131acd23f116570f7027ebcc
                             </ul>
                         </div>
                     </li>
