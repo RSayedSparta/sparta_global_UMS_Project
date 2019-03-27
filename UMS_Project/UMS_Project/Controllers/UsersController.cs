@@ -50,27 +50,11 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,upassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
-            byte[] GenerateSalt(int length)
-            {
-                var bytes = new byte[length];
-
-                using (var rng = new RNGCryptoServiceProvider())
-                {
-                    rng.GetBytes(bytes);
-                }
-
-                return bytes;
-            }
-
-            byte[] GenerateHash(byte[] password, byte[] salt, int iterations, int length)
-            {
-                using (var deriveBytes = new Rfc2898DeriveBytes(password, salt, iterations))
-                {
-                    return deriveBytes.GetBytes(length);
-                }
-            }
+            user.password.T
+            PasswordSecurity.GenerateSalt(3);
+            PasswordSecurity.GenerateHash(user.password,)
 
             if (ModelState.IsValid)
             {
