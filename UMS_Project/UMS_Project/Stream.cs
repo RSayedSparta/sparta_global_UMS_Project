@@ -23,12 +23,16 @@ namespace UMS_Project
         }
 
         public int streamID { get; set; }
+        [Required]
         [Display(Name = "Stream Name")]
         public string streamName { get; set; }
+        [Required]
         [Display(Name = "Specialization")]
         public string specialization { get; set; }
+        [Required]
         [Display(Name = "Duration")]
         public string duration { get; set; }
+        [Required]
         [Display(Name = "Curriculum")]
         public string curriculum { get; set; }
     
