@@ -14,12 +14,6 @@ namespace UMS_Project.Controllers
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
-        // GET: Login
-        public ActionResult Index()
-        {
-            var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
-            return View(users.ToList());
-        }
         //GET: Login
         public ActionResult Login()
         {
