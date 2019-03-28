@@ -33,10 +33,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-<<<<<<< HEAD
 
-=======
->>>>>>> f54a4e3fbdf7a1d051d3666cb55b2c0b558d5f91
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
@@ -49,14 +46,13 @@
                             </ul>
                         </div>
                     </li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    @if (@Session["Email"] != null)
-                    {
-                        <li class="glyphicon glyphicon-check"><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
-                    }
-                    <li class="glyphicon glyphicon-log-out">@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    <li class="nav navbar-right">
+                        @if (@Session["Email"] != null)
+                        {
+                            <div class="navbar-text glyphicon glyphicon-user"><a>Hello, @Session["Name"]! @Session["Email"]</a></div>
+                        }
+                        <div class="navbar-text glyphicon glyphicon-log-out">@Html.ActionLink("Logout", "Logout", "Login")</div>
+                    </li>
                 </ul>
 
             </div>
