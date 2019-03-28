@@ -5,10 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Web.Mvc;
-<<<<<<< HEAD
-=======
 using UMS_Project.AuthData;
->>>>>>> fff49ef23cfe1a0e4642565015f960351e738e87
 
 namespace UMS_Project.Controllers
 {
