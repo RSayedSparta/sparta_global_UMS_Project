@@ -33,10 +33,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-<<<<<<< HEAD
-
-=======
->>>>>>> 22bdccba2b4894fc81554ef4a18a7f865f69512e
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
@@ -46,10 +42,6 @@
                                         <li>@Html.ActionLink((@name).ToString(), "Details", "Streams", new { id = item.streamID }, null)</li>
                                     }
                                 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 22bdccba2b4894fc81554ef4a18a7f865f69512e
                             </ul>
                         </div>
                     </li>
