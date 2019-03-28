@@ -65,7 +65,7 @@ namespace UMS_Project.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login","Login");
             }
 
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
@@ -109,7 +109,7 @@ namespace UMS_Project.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", user);
             }
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
             ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
