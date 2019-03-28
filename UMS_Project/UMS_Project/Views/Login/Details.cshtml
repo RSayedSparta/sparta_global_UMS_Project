@@ -59,22 +59,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.passwordSalt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.passwordSalt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.passwordHash)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.passwordHash)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Cohort.cohortName)
         </dt>
 
@@ -93,6 +77,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.userID }) |
+    @Html.ActionLink("Edit", "Edit", "Users", new { id = Model.userID }, null) |
     @Html.ActionLink("Back to List", "Index")
 </p>
