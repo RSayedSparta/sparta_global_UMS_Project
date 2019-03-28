@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,11 +16,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <img src="~/Content/spartaglobal1.png" />
-                    </a>
+               <img src="~/Content/spartaglobal1.png" alt="Sparta Global" />
             </div>
-
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -36,16 +33,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-<<<<<<< HEAD
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> 22bdccba2b4894fc81554ef4a18a7f865f69512e
->>>>>>> fff49ef23cfe1a0e4642565015f960351e738e87
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
@@ -55,31 +43,27 @@
                                         <li>@Html.ActionLink((@name).ToString(), "Details", "Streams", new { id = item.streamID }, null)</li>
                                     }
                                 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 22bdccba2b4894fc81554ef4a18a7f865f69512e
                             </ul>
                         </div>
                     </li>
                 </ul>
 
-                <ul class="nav navbar-nav pull-right">
+                <ul class="nav navbar-nav navbar-right">
                     @if (@Session["Email"] != null)
                     {
-                        <li><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
+                        <li class="glyphicon glyphicon-check"><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
                     }
-                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    <li class="glyphicon glyphicon-log-out">@Html.ActionLink("Logout", "Logout", "Login")</li>
                 </ul>
 
             </div>
         </div>
-    </nav>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Sparta Global</p>
         </footer>
     </div>
 

@@ -11,22 +11,14 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-<<<<<<< HEAD
-=======
     using System.ComponentModel;
->>>>>>> 27207772cc45460432e831b52f56b088c845a29f
     using System.ComponentModel.DataAnnotations;
 
     public partial class Trainer
     {
         [Required]
         public int trainerID { get; set; }
-<<<<<<< HEAD
         [Display(Name = "Name of Trainer")]
-=======
-        [Required]
-        [DisplayName("Trainer Name")]
->>>>>>> 27207772cc45460432e831b52f56b088c845a29f
         public string trainerName { get; set; }
         [Required]
         public int userID { get; set; }

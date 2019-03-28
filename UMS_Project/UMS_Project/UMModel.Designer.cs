@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-﻿// T4 code generation is enabled for model 'C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
->>>>>>> a6fb5d7f0b0f912680ee7ea752076a746353bba4
-=======
-
-// T4 code generation is enabled for model 'C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-
-
-
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-
-
-
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-
-
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-
-
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'.
-
-// T4 code generation is enabled for model 'C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx'. 
-
-
->>>>>>> fff49ef23cfe1a0e4642565015f960351e738e87
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
