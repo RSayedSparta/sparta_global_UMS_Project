@@ -31,6 +31,11 @@ namespace UMS_Project.Controllers
         public ActionResult Login(User user)
         {
             User usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email));
+            if (usr == null)
+            {
+                return RedirectToAction("Create", "Users");
+            }
+
             if(usr.passwordSalt == null)
             {
                 return RedirectToAction("Create", "Users");
