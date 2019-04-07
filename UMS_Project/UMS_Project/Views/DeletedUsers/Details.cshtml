@@ -1,0 +1,98 @@
+﻿@model UMS_Project.DeletedUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DeletedUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwordSalt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwordSalt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwordHash)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.roleID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cohortID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cohortID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
