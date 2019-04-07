@@ -15,6 +15,7 @@
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__cohortID__3E52440B" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__3D5E1FD2" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__412EB0B6" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="10.5" PointY="1.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

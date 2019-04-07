@@ -11,9 +11,7 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Stream
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,19 +19,11 @@ namespace UMS_Project
         {
             this.Cohorts = new HashSet<Cohort>();
         }
-
+    
         public int streamID { get; set; }
-        [Required]
-        [Display(Name = "Stream Name")]
         public string streamName { get; set; }
-        [Required]
-        [Display(Name = "Specialization")]
         public string specialization { get; set; }
-        [Required]
-        [Display(Name = "Duration")]
         public string duration { get; set; }
-        [Required]
-        [Display(Name = "Curriculum")]
         public string curriculum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

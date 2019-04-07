@@ -12,15 +12,10 @@ namespace UMS_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class DeletedUser
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.Trainers = new HashSet<Trainer>();
-        }
-    
-        public int userID { get; set; }
+        public int id { get; set; }
+        public Nullable<int> userID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public Nullable<int> age { get; set; }
@@ -28,12 +23,7 @@ namespace UMS_Project
         public string email { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
-        public int roleID { get; set; }
-        public int cohortID { get; set; }
-    
-        public virtual Cohort Cohort { get; set; }
-        public virtual Role Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trainer> Trainers { get; set; }
+        public Nullable<int> roleID { get; set; }
+        public Nullable<int> cohortID { get; set; }
     }
 }
