@@ -13,13 +13,6 @@ namespace UMS_Project.Controllers
     public class LoginController : Controller
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
-
-        // GET: Login
-        public ActionResult Index()
-        {
-            var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
-            return View(users.ToList());
-        }
         //GET: Login
         public ActionResult Login()
         {
@@ -35,39 +28,38 @@ namespace UMS_Project.Controllers
             {
                 return RedirectToAction("Create", "Users");
             }
-
-            if(usr.passwordSalt == null)
-            {
-                return RedirectToAction("Create", "Users");
-            }
-
-            string salt = usr.passwordSalt;
-
-            string hash = PasswordSecurity.GenerateHash(user.password, salt);
-            user.passwordHash = hash;
-
-            usr = db.Users.SingleOrDefault(u => u.email.Equals(user.email) && u.passwordHash.Equals(user.passwordHash));
-            if (usr == null)
-            {
-                return RedirectToAction("Create", "Users");
-            }
             else
             {
-                //Admin directed to user list table
-                Session["Email"] = usr.email;
-                Session["Name"] = usr.firstName;
-                Session["Role"] = usr.roleID;
-                Session["ID"] = usr.userID;
-                if (Session["Role"].ToString() == "1")
+
+                string salt = usr.passwordSalt;
+
+                string hash = PasswordSecurity.GenerateHash(user.password, salt);
+                user.passwordHash = hash;
+
+                if (usr.passwordHash != hash)
                 {
-                    return RedirectToAction("Index", "Users");
+                    return RedirectToAction("Login", "Login");
                 }
                 else
                 {
-                    //user directed to own details 
-                    return View("Details", usr);
+                    //Admin directed to user list table
+                    Session["Email"] = usr.email;
+                    Session["Name"] = usr.firstName;
+                    Session["Role"] = usr.roleID;
+                    Session["ID"] = usr.userID;
+                    if (Session["Role"].ToString() == "1")
+                    {
+                        return RedirectToAction("Index", "Users");
+                    }
+                    else
+                    {
+                        //user directed to own details 
+                        return View("Details", usr);
+                    }
                 }
+
             }
+
         }
         // GET: Login/Details/5
         public ActionResult Details(int? id)
