@@ -8,13 +8,14 @@
 //------------------------------------------------------------------------------
 
 namespace UMS_Project
+
 {
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-
-    public partial class Stream
+     public partial class Stream
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Stream()
@@ -35,8 +36,9 @@ namespace UMS_Project
         [Required]
         [Display(Name = "Curriculum")]
         public string curriculum { get; set; }
-    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cohort> Cohorts { get; set; }
+
     }
+
 }
