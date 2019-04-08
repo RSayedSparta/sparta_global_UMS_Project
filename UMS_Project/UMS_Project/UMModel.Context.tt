@@ -90,6 +90,7 @@ foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
     {
 #>
     <#=codeStringGenerator.DbSet(entitySet)#>
+    <#=codeStringGenerator.DbSet(entitySet)#>
 <#
     }
 
