@@ -111,7 +111,6 @@ namespace UMS_Project.Controllers
                     {
                         return RedirectToAction("Login", "Login");
                     }
-                    
                 }
 
                 ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
