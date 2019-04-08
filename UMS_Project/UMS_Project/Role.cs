@@ -6,8 +6,6 @@ namespace UMS_Project
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-
-
     public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

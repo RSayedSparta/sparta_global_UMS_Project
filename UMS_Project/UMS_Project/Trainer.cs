@@ -48,6 +48,7 @@ namespace UMS_Project
 
         [Required]
         public int cohortID { get; set; }
+
         public virtual Cohort Cohort { get; set; }
         public virtual User User { get; set; }
 

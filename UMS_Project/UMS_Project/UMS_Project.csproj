@@ -145,6 +145,7 @@
       <DependentUpon>UMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CohortsController.cs" />
+    <Compile Include="Controllers\DeletedUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -269,6 +270,8 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Details.cshtml" />
+    <Content Include="Views\DeletedUsers\Restore.cshtml" />
+    <Content Include="Views\DeletedUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
