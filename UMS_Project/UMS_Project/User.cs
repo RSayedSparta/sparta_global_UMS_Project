@@ -42,10 +42,7 @@ namespace UMS_Project
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
         public string email { get; set; }
-<<<<<<< HEAD
-=======
 
->>>>>>> f54a4e3fbdf7a1d051d3666cb55b2c0b558d5f91
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
         [Required]
