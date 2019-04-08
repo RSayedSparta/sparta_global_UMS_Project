@@ -32,11 +32,7 @@ namespace UMS_Project
 
             this.Users = new HashSet<User>();
         }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public int cohortID { get; set; }
         [Required]
         [DisplayName("Cohort Name")]

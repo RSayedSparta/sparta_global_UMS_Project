@@ -1,3 +1,4 @@
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CoreCompileInputs.cache
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll.config
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\UMS_Project.pdb
@@ -54,6 +55,8 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Newtonsoft.Json.dll
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\PagedList.dll
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\PagedList.Mvc.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Web.Helpers.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Web.Mvc.dll
@@ -65,6 +68,8 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\WebGrease.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\EntityFramework.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\EntityFramework.SqlServer.xml
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\PagedList.xml
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\PagedList.Mvc.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Web.Helpers.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Web.Mvc.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Web.Optimization.xml
@@ -77,8 +82,7 @@ C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UM
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
-C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CoreCompileInputs.cache
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csproj.CopyComplete
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.dll
 C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.pdb
+C:\Users\Tech-W70a\Engineering26\week11\UserProject\sparta_global_UMS_Project\UMS_Project\UMS_Project\obj\Debug\UMS_Project.csprojAssemblyReference.cache
