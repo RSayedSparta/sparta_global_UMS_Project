@@ -105,7 +105,15 @@ namespace UMS_Project.Controllers
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("Login", "Login");
+                    if (Session["Role"].ToString() == "1")
+                    {
+                        return RedirectToAction("Index", "Users");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Login", "Login");
+                    }
+                    
                 }
 
                 ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
