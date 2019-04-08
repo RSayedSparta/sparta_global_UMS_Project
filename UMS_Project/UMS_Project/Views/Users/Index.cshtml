@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<UMS_Project.User>
 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -10,65 +11,74 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.firstName)
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lastName)
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.age)
+            @Html.ActionLink("Age", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gender)
+            @Html.ActionLink("gender", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.ActionLink("email", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.password)
+            @Html.ActionLink("cohortName", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cohort.cohortName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Role.roleName)
+            @Html.ActionLink("roleName", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cohort.cohortName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role.roleName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
-        </td>
-    </tr>
-}
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cohort.cohortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.roleName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.userID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.userID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.userID })
+            </td>
+        </tr>
+    }
+
 
 </table>
