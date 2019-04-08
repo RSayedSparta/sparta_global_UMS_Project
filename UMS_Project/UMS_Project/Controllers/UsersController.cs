@@ -65,17 +65,21 @@ namespace UMS_Project.Controllers
             {
                 return RedirectToAction("Create");
             }
-
-            if (ModelState.IsValid)
+            else
             {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Login","Login");
+                if (ModelState.IsValid)
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Login", "Login");
+                }
+
+                ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+                return View(user);
             }
 
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
-            return View(user);
+         
         }
 
         // GET: Users/Edit/5
