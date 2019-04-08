@@ -14,10 +14,10 @@
 // </auto-generated>
 
 //------------------------------------------------------------------------------
-
-
 namespace UMS_Project
+
 {
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -25,13 +25,14 @@ namespace UMS_Project
 
     public partial class Cohort
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cohort()
         {
             this.Trainers = new HashSet<Trainer>();
+
             this.Users = new HashSet<User>();
         }
-        [Required]
+
         public int cohortID { get; set; }
         [Required]
         [DisplayName("Cohort Name")]

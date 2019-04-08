@@ -15,9 +15,49 @@ namespace UMS_Project.Controllers
 
         // GET: Users
         [AuthorizationFilter]
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "firstname_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "lastname_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "age" ? "age_desc" : "age";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "gender_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "email_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "cohortName_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "roleName_desc" : "";
+            var users = from u in db.Users
+                           select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(u => u.lastName.Contains(searchString)
+                                       || u.firstName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "firstname_desc":
+                    users = users.OrderByDescending(u => u.firstName);
+                    break;
+                case "age":
+                    users = users.OrderBy(u => u.age);
+                    break;
+                case "lastname_desc":
+                    users = users.OrderByDescending(u => u.lastName);
+                    break;
+                case "gender_desc":
+                    users = users.OrderByDescending(u => u.gender);
+                    break;
+                case "email_desc":
+                    users = users.OrderByDescending(u => u.email);
+                    break;
+                case "cohortName_desc":
+                    users = users.OrderByDescending(u => u.cohortID);
+                    break;
+                case "roleName_desc":
+                    users = users.OrderByDescending(u => u.roleID);
+                    break;
+                default:
+                    users = users.OrderBy(u => u.firstName);
+                    break;
+            }
             return View(users.ToList());
         }
 
@@ -154,30 +194,8 @@ namespace UMS_Project.Controllers
             }
             base.Dispose(disposing);
         }
-        [ActionName("Sort")]
-        public ActionResult Index(string sortOrder)
-        {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            var Users = from s in db.Users
-                        select s;
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    Users = Users.OrderByDescending(s => s.firstName);
-                    break;
-                case "lname_desc":
-                    Users = Users.OrderBy(s => s.lastName);
-                    break;
-                case "age":
-                    Users = Users.OrderByDescending(s => s.age);
-                    break;
-                default:
-                    Users = Users.OrderBy(s => s.lastName);
-                    break;
-            }
-            return View(Users.ToList());
-        }
+       
+        
     }
 
 }
