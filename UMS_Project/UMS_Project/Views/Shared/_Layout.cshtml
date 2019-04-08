@@ -47,9 +47,10 @@
                     </li>
                     @if (@Session["Email"] != null)
                     {
-                        <li><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
+                        <li><a>Hello, @Session["Name"] @Session["Email"]</a></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
                     }
-                    <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
+
                 </ul>
             </div>
         </div>
