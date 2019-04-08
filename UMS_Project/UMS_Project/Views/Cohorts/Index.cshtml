@@ -41,6 +41,7 @@
         <th></th>
     </tr>
 
+<<<<<<< HEAD
     @foreach (var item in Model)
     {
         <tr>
@@ -80,3 +81,40 @@
    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 @Html.PagedListPager(Model, PageNo =>Url.Action("Index",
     new { PageNo, SortingOrder= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+=======
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cohortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hasTA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maximumSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.minimumSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stream.streamName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cohortID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cohortID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cohortID })
+        </td>
+    </tr>
+}
+</table>
+@Html.Action("Index", "Users")
+>>>>>>> 9b133a206d3985d679adafc71cf9aab26e5ecb3b

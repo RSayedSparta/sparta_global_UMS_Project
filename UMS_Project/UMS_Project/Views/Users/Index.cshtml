@@ -7,7 +7,11 @@
     ViewBag.Title = "User";
 }
 
+<<<<<<< HEAD
 <h2>User</h2>
+=======
+<h2>Users</h2>
+>>>>>>> 9b133a206d3985d679adafc71cf9aab26e5ecb3b
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -51,36 +55,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cohort.cohortName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role.roleName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cohort.cohortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.roleName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.userID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.userID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.userID })
+            </td>
+        </tr>
+    }
 
 </table>
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
