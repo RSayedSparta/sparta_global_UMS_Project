@@ -151,6 +151,9 @@
     <Compile Include="Controllers\StreamsController.cs" />
     <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DeletedUser.cs">
+      <DependentUpon>UMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
