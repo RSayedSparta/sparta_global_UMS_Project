@@ -18,8 +18,37 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Streams
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "streamName_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "specialization_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "duration_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "curriculum_desc" : "";
+            var streams = from s in db.Streams
+                        select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                streams = streams.Where(s => s.streamName.Contains(searchString)
+                                       || s.specialization.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "streamName_desc":
+                    streams = streams.OrderByDescending(s => s.streamName);
+                    break;
+                case "specialization_desc":
+                    streams = streams.OrderBy(s => s.specialization);
+                    break;
+                case "duration_desc":
+                    streams = streams.OrderByDescending(s => s.duration);
+                    break;
+                case "curriculum_desc":
+                    streams = streams.OrderByDescending(s => s.curriculum);
+                    break;
+                default:
+                    streams = streams.OrderBy(s => s.streamName);
+                    break;
+            }
             return View(db.Streams.ToList());
         }
 

@@ -19,7 +19,7 @@ namespace UMS_Project.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "firstname_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "lastname_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "age" ? "age_desc" : "age";
+            ViewBag.NameSortParm = sortOrder == "age" ? "age_desc" : "age";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "gender_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "email_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "cohortName_desc" : "";
@@ -29,8 +29,9 @@ namespace UMS_Project.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 users = users.Where(u => u.lastName.Contains(searchString)
-                                       || u.firstName.Contains(searchString));
+                                       || u.firstName.Contains(searchString));                  
             }
+
             switch (sortOrder)
             {
                 case "firstname_desc":

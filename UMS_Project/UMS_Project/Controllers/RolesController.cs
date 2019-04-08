@@ -17,8 +17,30 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Roles
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "roleName_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "roleDescription_desc" : "";
+            var roles = from r in db.Roles
+                        select r;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                roles = roles.Where(r => r.roleName.Contains(searchString)
+                                       || r.roleDescription.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "roleName_desc":
+                    roles = roles.OrderByDescending(r => r.roleName);
+                    break;
+                case "roleDescription_desc":
+                    roles = roles.OrderBy(r => r.roleDescription);
+                    break;
+                default:
+                    roles = roles.OrderBy(r => r.roleName);
+                    break;
+            }
+
             return View(db.Roles.ToList());
         }
         // GET: Roles

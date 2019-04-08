@@ -9,43 +9,51 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.streamName)
+            @Html.ActionLink("Stream Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.specialization)
+            @Html.ActionLink("Specialization", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.duration)
+            @Html.ActionLink("Duration", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.curriculum)
+            @Html.ActionLink("Curriculum", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.streamName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.specialization)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.curriculum)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.streamID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.streamID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.streamID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.streamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.curriculum)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.streamID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.streamID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.streamID })
+            </td>
+        </tr>
+    }
 
 </table>
