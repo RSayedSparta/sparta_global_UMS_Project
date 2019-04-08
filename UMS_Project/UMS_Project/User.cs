@@ -39,10 +39,7 @@ namespace UMS_Project
         {
             this.Trainers = new HashSet<Trainer>();
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public int userID { get; set; }
 
         [Required]
@@ -64,11 +61,9 @@ namespace UMS_Project
         [Required]
         [DisplayName("Email")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
-<<<<<<< HEAD
+
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
 
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public string email { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }

@@ -1,11 +1,13 @@
-﻿@model IEnumerable<UMS_Project.User>
+﻿@model PagedList.IPagedList<UMS_Project.User>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "User";
 }
 
-<h2>Index</h2>
+<h2>User</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -82,3 +84,6 @@
 
 
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, PageNo =>Url.Action("Index",
+    new { PageNo, SortingOrder= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))

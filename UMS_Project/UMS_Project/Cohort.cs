@@ -25,12 +25,8 @@ namespace UMS_Project
 
     public partial class Cohort
     {
-<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
 
-=======
-       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public Cohort()
         {
             this.Trainers = new HashSet<Trainer>();
@@ -38,10 +34,9 @@ namespace UMS_Project
             this.Users = new HashSet<User>();
         }
 
-<<<<<<< HEAD
+
         [Required]
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
+
         public int cohortID { get; set; }
 
         [Required]
@@ -64,10 +59,7 @@ namespace UMS_Project
         public Nullable<int> minimumSeats { get; set; }
         [Required]
         public int streamID { get; set; }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public virtual Stream Stream { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

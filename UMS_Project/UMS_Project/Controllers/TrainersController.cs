@@ -20,7 +20,7 @@ namespace UMS_Project.Controllers
         public int PageNo { get; private set; }
 
         // GET: Trainers
-        public ActionResult Trainers(int? PageNo)
+        public ActionResult Index(int? PageNo)
         {
             var trainers = db.Trainers.Include(t => t.Cohort).Include(t => t.User);
             return View(trainers.ToList());
@@ -28,6 +28,12 @@ namespace UMS_Project.Controllers
         int Size_Of_Page = 10;
         int No_Of_Page = PageNo ?? 1;
         return View(trainers.ToPagedList(No_Of_Page, Size_Of_Page));
+
+        // GET: Trainers
+        public ActionResult Trainers()
+        {
+            return View();
+        }
 
         // GET: Trainers/Details/5
         public ActionResult Details(int? id)

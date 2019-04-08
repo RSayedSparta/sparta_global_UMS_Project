@@ -16,7 +16,7 @@ namespace UMS_Project.Controllers
 
         // GET: Users
         [AuthorizationFilter]
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string searchString, int? PageNo)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "firstname_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "lastname_desc" : "";
@@ -59,7 +59,10 @@ namespace UMS_Project.Controllers
                     users = users.OrderBy(u => u.firstName);
                     break;
             }
-            return View(users.ToList());
+            int Size_Of_Page = 10;
+            int No_Of_Page = PageNo ?? 1;
+            return View(users.ToPagedList(No_Of_Page, Size_Of_Page));
+            
         }
 
         // GET: Users/Details/5
