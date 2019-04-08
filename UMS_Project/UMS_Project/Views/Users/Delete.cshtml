@@ -52,14 +52,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.password)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Cohort.cohortName)
         </dt>
 
@@ -77,7 +69,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -86,3 +79,4 @@
         </div>
     }
 </div>
+
