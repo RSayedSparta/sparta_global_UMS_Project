@@ -8,10 +8,15 @@
 //------------------------------------------------------------------------------
 
 namespace UMS_Project
+
 {
+
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
 
     public partial class User
     {
@@ -20,23 +25,41 @@ namespace UMS_Project
         {
             this.Trainers = new HashSet<Trainer>();
         }
-    
         public int userID { get; set; }
+        [Required]
+        [DisplayName("First Name")]
         public string firstName { get; set; }
+        [Required]
+        [DisplayName("Last Name")]
         public string lastName { get; set; }
+        [Required]
+        [DisplayName("Age")]
         public Nullable<int> age { get; set; }
+        [Required]
+        [DisplayName("Gender")]
         public string gender { get; set; }
+        [Required]
+        [DisplayName("Email")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
+        [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
         public string email { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
-        [NotMapped]
-        public string password { get; set; }
+        [Required]
         public int roleID { get; set; }
+        [Required]
         public int cohortID { get; set; }
-    
+        [NotMapped]
+        [Required]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
+        public string password { get; set; }
         public virtual Cohort Cohort { get; set; }
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
+
     }
+
 }
+
