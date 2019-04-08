@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cohorts</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -71,5 +71,5 @@
         </td>
     </tr>
 }
-
 </table>
+@Html.Action("Index", "Users")
