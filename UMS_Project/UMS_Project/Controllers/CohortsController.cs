@@ -17,11 +17,22 @@ namespace UMS_Project.Controllers
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
+       
         // GET: Cohorts
-        public ActionResult Index()
+        public ActionResult Index(int? PageNo)
         {
             var cohorts = db.Cohorts.Include(c => c.Stream);
             return View(cohorts.ToList());
+            int Size_Of_Page = 10;
+            int No_Of_Page = PageNo ?? 1;
+            return View(cohorts.ToPagedList(No_Of_Page, Size_Of_Page));
+        }
+       
+
+        // GET: Cohorts
+        public ActionResult Cohorts()
+        {
+            return View();
         }
 
         // GET: Cohorts/Details/5

@@ -1,10 +1,13 @@
-﻿@model IEnumerable<UMS_Project.Cohort>
+﻿@model PagedList.IPagedList<UMS_Project.Cohort>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cohorts";
 }
 
-<h2>Index</h2>
+<h2>Cohorts</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,64 +15,68 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.cohortName)
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.startDate)
+            @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.endDate)
+            @Html.ActionLink("End Date", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hasTA)
+            @Html.ActionLink("TA", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.clocation)
+            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.maximumSeats)
+            @Html.ActionLink("Maximum Seats", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.minimumSeats)
+            @Html.ActionLink("Minimum Seats", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Stream.streamName)
+            @Html.ActionLink("Stream Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cohortName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.startDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.endDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hasTA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clocation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.maximumSeats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.minimumSeats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stream.streamName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cohortID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cohortID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cohortID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cohortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hasTA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maximumSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minimumSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stream.streamName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.cohortID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.cohortID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.cohortID })
+            </td>
+        </tr>
+    }
 
 </table>
+   Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, PageNo =>Url.Action("Index",
+    new { PageNo, SortingOrder= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
