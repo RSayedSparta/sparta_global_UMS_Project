@@ -11,6 +11,7 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Cohort
@@ -22,7 +23,7 @@ namespace UMS_Project
             this.Trainers = new HashSet<Trainer>();
             this.Users = new HashSet<User>();
         }
-<<<<<<< HEAD
+
 
 
         [Required]
@@ -34,13 +35,8 @@ namespace UMS_Project
 
         public string cohortName { get; set; }
         [DisplayName("Start Date")]
-
-=======
         [Required]
         [Display]
-        public int cohortID { get; set; }
-        public string cohortName { get; set; }
->>>>>>> 8782fcb4e2f6b414b5ac88797432f44f57d21607
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<System.DateTime> endDate { get; set; }
         public Nullable<bool> hasTA { get; set; }

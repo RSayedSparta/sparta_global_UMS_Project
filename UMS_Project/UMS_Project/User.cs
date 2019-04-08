@@ -44,13 +44,11 @@ namespace UMS_Project
         [Required]
         [DisplayName("Email")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
-<<<<<<< HEAD
 
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Invalid")]
 
-=======
         [EmailNotInDB]
->>>>>>> 8782fcb4e2f6b414b5ac88797432f44f57d21607
+
         public string email { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
