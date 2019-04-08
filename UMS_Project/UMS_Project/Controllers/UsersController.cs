@@ -99,21 +99,18 @@ namespace UMS_Project.Controllers
             string hash = PasswordSecurity.GenerateHash(user.password, salt);
             user.passwordHash = hash;
 
-            if(db.Users.Count(u => u.email == user.email) > 0)
-            {
-                return RedirectToAction("Create");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Login", "Login");
+                }
 
-            if (ModelState.IsValid)
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Login","Login");
-            }
+                ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+                return View(user);
 
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
-            return View(user);
+         
         }
 
         // GET: Users/Edit/5
