@@ -90,7 +90,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,confirmPassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
 
             string salt = PasswordSecurity.GenerateSalt(4);
@@ -103,7 +103,15 @@ namespace UMS_Project.Controllers
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("Login", "Login");
+                    if (Session["Role"].ToString() == "1")
+                    {
+                        return RedirectToAction("Index", "Users");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Login", "Login");
+                    }
+                    
                 }
 
                 ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
