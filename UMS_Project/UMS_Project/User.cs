@@ -39,10 +39,7 @@ namespace UMS_Project
         {
             this.Trainers = new HashSet<Trainer>();
         }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
+
         public int userID { get; set; }
         [Required]
         [DisplayName("First Name")]

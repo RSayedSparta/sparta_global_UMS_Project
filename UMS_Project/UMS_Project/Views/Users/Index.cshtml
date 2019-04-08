@@ -38,14 +38,10 @@
             @Html.ActionLink("gender", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-<<<<<<< HEAD
-            @Html.DisplayNameFor(model => model.Cohort.cohortName)
-=======
             @Html.ActionLink("email", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
             @Html.ActionLink("cohortName", "Index", new { sortOrder = ViewBag.NameSortParm })
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         </th>
         <th>
             @Html.ActionLink("roleName", "Index", new { sortOrder = ViewBag.NameSortParm })
@@ -53,7 +49,6 @@
         <th></th>
     </tr>
 
-<<<<<<< HEAD
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -84,41 +79,5 @@
         </td>
     </tr>
 }
-=======
-
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cohort.cohortName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role.roleName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.userID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.userID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.userID })
-            </td>
-        </tr>
-    }
-
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
 
 </table>
