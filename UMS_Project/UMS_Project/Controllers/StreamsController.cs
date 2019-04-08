@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
 using UMS_Project.AuthData;
+using PagedList;
 
 namespace UMS_Project.Controllers
 {
@@ -15,12 +16,57 @@ namespace UMS_Project.Controllers
     [AuthorizationFilter]
     public class StreamsController : Controller
     {
+       
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
+        public object Search_Data { get; private set; }
+        public object Filter_Value { get; private set; }
+        public int PageNo { get; private set; }
+
         // GET: Streams
-        public ActionResult Index()
+        public ActionResult Index(string SortingOrder, string Search_Data, string Filter_Value, int? PageNo)
         {
-            return View(db.Streams.ToList());
+            ViewBag.CurrentSort = SortingOrder;
+            ViewBag.SortingName = String.IsNullOrEmpty(SortingOrder) ? "Name_Description" : "";
+            ViewBag.SortingDuration = String.IsNullOrEmpty(SortingOrder) ? "Duration_Description" : "";
+
+            if (Search_Data != null)
+            {
+                PageNo = 1;
+            }
+            else
+            {
+                Search_Data = Filter_Value;
+            }
+
+            ViewBag.FilterValue = Search_Data;
+
+            var streams = from stream in db.Streams select stream;
+            switch (SortingOrder)
+            {
+                case "Name_Description":
+                    streams = streams.OrderByDescending(stream => stream.streamName);
+                    break;
+                case "Duration":
+                    streams = streams.OrderBy(stream => stream.duration);
+                    break;
+                case "Specialisation":
+                    streams = streams.OrderBy(stream => stream.specialization);
+                    break;
+                default:
+                    streams = streams.OrderBy(stream => stream.curriculum);
+                    break;
+            }
+            int Size_Of_Page = 10;
+            int No_Of_Page = PageNo ?? 1;
+            return View(streams.ToPagedList(No_Of_Page, Size_Of_Page));
+            //return View(db.Roles.ToList());
+            
+        }
+        // GET: Streams
+        public ActionResult Streams()
+        {
+            return View();
         }
 
         // GET: Streams/Details/5
@@ -38,7 +84,7 @@ namespace UMS_Project.Controllers
             {
                 return HttpNotFound();
             }
-            return View("Details", stream);
+            return View(stream);
         }
 
         // GET: Streams/Create

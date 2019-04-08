@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
 using UMS_Project.AuthData;
+using PagedList;
 
 namespace UMS_Project.Controllers
 {

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
 using UMS_Project.AuthData;
+using PagedList;
 
 namespace UMS_Project.Controllers
 {
@@ -16,12 +17,17 @@ namespace UMS_Project.Controllers
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
+        public int PageNo { get; private set; }
+
         // GET: Trainers
-        public ActionResult Index()
+        public ActionResult Trainers(int? PageNo)
         {
             var trainers = db.Trainers.Include(t => t.Cohort).Include(t => t.User);
             return View(trainers.ToList());
         }
+        int Size_Of_Page = 10;
+        int No_Of_Page = PageNo ?? 1;
+        return View(trainers.ToPagedList(No_Of_Page, Size_Of_Page));
 
         // GET: Trainers/Details/5
         public ActionResult Details(int? id)

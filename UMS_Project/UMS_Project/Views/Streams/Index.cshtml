@@ -1,10 +1,26 @@
-﻿@model IEnumerable<UMS_Project.Stream>
+﻿@model PagedList.IPagedList<UMS_Project.Stream>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Streams</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Streams", FormMethod.Get))
+{
+    <p>
+        Find by stream: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,40 +28,44 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.streamName)
+            @Html.ActionLink("Stream Name", "Index", new { Sorting_Order = ViewBag.SortingName })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.specialization)
+            @Html.ActionLink("Specialisation", "Index", new { Sorting_Order = ViewBag.SortingSpecialisation })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.duration)
+            @Html.ActionLink("Duration", "Index", new { Sorting_Order = ViewBag.SortingDuration })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.curriculum)
+            @Html.ActionLink("Curriculum", "Index", new { Sorting_Order = ViewBag.SortingCurriculum })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.streamName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.specialization)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.curriculum)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.streamID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.streamID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.streamID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.streamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.curriculum)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.streamID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.streamID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.streamID })
+            </td>
+        </tr>
+    }
 
 </table>
+ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, PageNo =>Url.Action("Index",
+    new { PageNo, SortingOrder= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
