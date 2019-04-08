@@ -142,7 +142,15 @@ namespace UMS_Project.Controllers
                 return HttpNotFound();
             }
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+            if (Session["Role"].ToString() != "1")
+            {
+                int rID = (int)Session["Role"];
+                ViewBag.roleID = new SelectList(db.Roles.Where(r => r.roleID == rID), "roleID", "roleName");
+            }
+            else
+            {
+                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName");
+            }
             return View(user);
         }
 
