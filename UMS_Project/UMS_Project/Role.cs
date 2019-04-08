@@ -6,7 +6,10 @@ namespace UMS_Project
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
     public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +26,7 @@ namespace UMS_Project
         [DisplayName("Role Description")]
         [Required]
         public string roleDescription { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
 

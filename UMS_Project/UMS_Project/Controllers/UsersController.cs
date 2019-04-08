@@ -182,6 +182,18 @@ namespace UMS_Project.Controllers
         {
             User user = db.Users.Find(id);
             db.Users.Remove(user);
+            DeletedUser du = db.DeletedUsers.Create();
+            du.userID = user.userID;
+            du.firstName = user.firstName;
+            du.lastName = user.lastName;
+            du.age = user.age;
+            du.gender = user.gender;
+            du.email = user.email;
+            du.passwordSalt = user.passwordSalt;
+            du.passwordHash = user.passwordHash;
+            du.roleID = user.roleID;
+            du.cohortID = user.cohortID;
+            db.DeletedUsers.Add(du);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

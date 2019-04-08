@@ -68,8 +68,12 @@ namespace UMS_Project
         [NotMapped]
         [Required]
         [DataType(DataType.Password)]
+<<<<<<< HEAD
         [DisplayName("Password")]
         [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
+=======
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must be at least 8 characters and contain at least one lowercase letter, one uppercase letter and one number")]
+>>>>>>> 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
         public string password { get; set; }
         public virtual Cohort Cohort { get; set; }
         public virtual Role Role { get; set; }
