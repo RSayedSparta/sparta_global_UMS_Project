@@ -10,31 +10,22 @@ namespace UMS_Project.Utilities
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
-        public Type ObjectType { get; private set; }
-
-        public EmailNotInDB(Type type)
+        public EmailNotInDB() : base("{0} is already associated to another user")
         {
-            ObjectType = type;
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            //if (ObjectType == )
-            //{
-                
-            //    var email = db.Users.FirstOrDefault(u => u.email == (string) value);
+            var email = db.Users.SingleOrDefault(u => u.email == value.ToString());
 
-            //    if (email == null)
-            //    {
-            //        return ValidationResult.Success;
+                if (email == null)
+                {
+                    return ValidationResult.Success;
 
-            //    }
-            //    else
-            //    {
-            //        return new ValidationResult("email already exists");
-            //    }
-            //}
-
-            return new ValidationResult("Generic Validation Fail");
+                }
+                else
+                {
+                    return new ValidationResult("");
+                }
         }
     }
 }

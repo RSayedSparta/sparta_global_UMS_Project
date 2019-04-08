@@ -31,6 +31,7 @@ namespace UMS_Project
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using UMS_Project.Utilities;
 
     public partial class User
     {
@@ -38,6 +39,7 @@ namespace UMS_Project
         public User() {
             this.Trainers = new HashSet<Trainer>();
         }
+
         public int userID { get; set; }
         [Required]
         [DisplayName("First Name")]
@@ -54,6 +56,7 @@ namespace UMS_Project
         [Required]
         [DisplayName("Email")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
+        [EmailNotInDB]
         public string email { get; set; }
         public string passwordSalt { get; set; }
         public string passwordHash { get; set; }
@@ -64,7 +67,7 @@ namespace UMS_Project
         [NotMapped]
         [Required]
         [DataType(DataType.Password)]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must be at least 8 characters and contain at least one lowercase letter, one uppercase letter and one number")]
         public string password { get; set; }
 
         //[NotMapped]

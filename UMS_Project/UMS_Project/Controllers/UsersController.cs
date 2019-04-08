@@ -99,12 +99,6 @@ namespace UMS_Project.Controllers
             string hash = PasswordSecurity.GenerateHash(user.password, salt);
             user.passwordHash = hash;
 
-            if(db.Users.Count(u => u.email == user.email) > 0)
-            {
-                return RedirectToAction("Create");
-            }
-            else
-            {
                 if (ModelState.IsValid)
                 {
                     db.Users.Add(user);
@@ -115,7 +109,6 @@ namespace UMS_Project.Controllers
                 ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
                 ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
                 return View(user);
-            }
 
          
         }
@@ -186,6 +179,18 @@ namespace UMS_Project.Controllers
         {
             User user = db.Users.Find(id);
             db.Users.Remove(user);
+            DeletedUser du = db.DeletedUsers.Create();
+            du.userID = user.userID;
+            du.firstName = user.firstName;
+            du.lastName = user.lastName;
+            du.age = user.age;
+            du.gender = user.gender;
+            du.email = user.email;
+            du.passwordSalt = user.passwordSalt;
+            du.passwordHash = user.passwordHash;
+            du.roleID = user.roleID;
+            du.cohortID = user.cohortID;
+            db.DeletedUsers.Add(du);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -42,6 +42,7 @@ namespace UMS_Project
         public Nullable<int> maximumSeats { get; set; }
         public Nullable<int> minimumSeats { get; set; }
         public int streamID { get; set; }
+
         public virtual Stream Stream { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
