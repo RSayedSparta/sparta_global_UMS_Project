@@ -5,16 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9a391514cdc44f6d8601b36b47fa49cf" Name="Diagram1">
-        <EntityTypeShape EntityType="User_ManagementDBModel.Cohort" Width="1.5" PointX="3" PointY="3" />
-        <EntityTypeShape EntityType="User_ManagementDBModel.Role" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="User_ManagementDBModel.Stream" Width="1.5" PointX="0.75" PointY="3.5" />
-        <EntityTypeShape EntityType="User_ManagementDBModel.Trainer" Width="1.5" PointX="5.25" PointY="3.5" />
-        <EntityTypeShape EntityType="User_ManagementDBModel.User" Width="1.5" PointX="8.25" PointY="2.75" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Cohort" Width="1.5" PointX="3.375" PointY="1.625" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Role" Width="1.5" PointX="7.25" PointY="0.5" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Stream" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.Trainer" Width="1.5" PointX="7.125" PointY="3.125" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.User" Width="1.5" PointX="9.875" PointY="1.875" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Cohort__streamID__3A81B327" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__cohortI__4222D4EF" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__cohortID__3E52440B" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__3D5E1FD2" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__412EB0B6" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.125" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
