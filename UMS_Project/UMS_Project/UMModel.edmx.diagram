@@ -16,10 +16,14 @@
         <AssociationConnector Association="User_ManagementDBModel.FK__Users__roleID__3D5E1FD2" />
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__412EB0B6" />
 <<<<<<< HEAD
-        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="10.5" PointY="1.875" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.25" PointY="5.125" />
 =======
-        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.125" PointY="0.5" />
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
+=======
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
