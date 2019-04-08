@@ -45,10 +45,6 @@ namespace UMS_Project
         public int userID { get; set; }
         [Required]
         public int cohortID { get; set; }
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public virtual Cohort Cohort { get; set; }
         public virtual User User { get; set; }
 

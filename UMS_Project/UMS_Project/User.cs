@@ -34,15 +34,10 @@ namespace UMS_Project
 
     public partial class User
     {
-<<<<<<< HEAD
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")] public User() { this.Trainers = new HashSet<Trainer>(); }
-=======
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
+        public User() {
             this.Trainers = new HashSet<Trainer>();
         }
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public int userID { get; set; }
         [Required]
         [DisplayName("First Name")]
@@ -71,26 +66,18 @@ namespace UMS_Project
         [DataType(DataType.Password)]
         [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
         public string password { get; set; }
-<<<<<<< HEAD
+
         //[NotMapped]
         //[Required]        
         //[RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]        
         //[Compare("Password")]        
-        //public string confirmPassword { get; set; }        
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
+        //public string confirmPassword { get; set; }  
+        
         public virtual Cohort Cohort { get; set; }
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
-<<<<<<< HEAD
-        }
-    }
-=======
 
     }
 
 }
-
-
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b

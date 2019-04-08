@@ -32,10 +32,7 @@ namespace UMS_Project
         public string duration { get; set; }
         [Display(Name = "Curriculum")]
         public string curriculum { get; set; }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cohort> Cohorts { get; set; }
 

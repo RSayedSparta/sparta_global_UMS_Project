@@ -18,21 +18,21 @@ namespace UMS_Project.Utilities
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (ObjectType == string)
-            {
+            //if (ObjectType == )
+            //{
                 
-                var email = db.Users.FirstOrDefault(u => u.email == (string) value);
+            //    var email = db.Users.FirstOrDefault(u => u.email == (string) value);
 
-                if (email == null)
-                {
-                    return ValidationResult.Success;
+            //    if (email == null)
+            //    {
+            //        return ValidationResult.Success;
 
-                }
-                else
-                {
-                    return new ValidationResult("email already exists");
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        return new ValidationResult("email already exists");
+            //    }
+            //}
 
             return new ValidationResult("Generic Validation Fail");
         }

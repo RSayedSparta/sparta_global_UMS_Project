@@ -31,12 +31,8 @@ namespace UMS_Project
 
             this.Users = new HashSet<User>();
         }
-<<<<<<< HEAD
         [Required]
         [Display]
-=======
-
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public int cohortID { get; set; }
         public string cohortName { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
@@ -46,10 +42,6 @@ namespace UMS_Project
         public Nullable<int> maximumSeats { get; set; }
         public Nullable<int> minimumSeats { get; set; }
         public int streamID { get; set; }
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
         public virtual Stream Stream { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
