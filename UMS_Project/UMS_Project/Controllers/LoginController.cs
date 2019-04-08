@@ -13,10 +13,7 @@ namespace UMS_Project.Controllers
     public class LoginController : Controller
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
-<<<<<<< HEAD
 
-=======
->>>>>>> a28b493d27bb36f4ffe7bc787ed440b9d7c2c3e1
         //GET: Login
         public ActionResult Login()
         {

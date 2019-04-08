@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -55,6 +57,7 @@ namespace UMS_Project.Controllers
             u.passwordHash = deletedUser.passwordHash;
             u.roleID = (int)deletedUser.roleID;
             u.cohortID = (int)deletedUser.cohortID;
+            u.password = "Empty123";
             db.Users.Add(u);
             db.SaveChanges();
             return RedirectToAction("Index","Users");
