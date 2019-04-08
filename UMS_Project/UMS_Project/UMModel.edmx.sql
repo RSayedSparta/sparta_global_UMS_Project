@@ -2,26 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
--- Date Created: 03/26/2019 13:56:56
--- Generated from EDMX file: C:\Users\Tech-W96a\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
-=======
-<<<<<<< HEAD
--- Date Created: 03/26/2019 14:49:36
--- Generated from EDMX file: C:\Users\tech-w99a.LAPTOP-3BLG1NHP\Engineering26\week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
->>>>>>> cf310a2ee6f8456fa7247b342428676ce0842128
-=======
--- Date Created: 03/26/2019 14:07:59
+-- Date Created: 04/08/2019 09:56:12
 -- Generated from EDMX file: C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
->>>>>>> 68d0b4dd81efab4b657501137fed4a4c4cc085f0
-<<<<<<< HEAD
-=======
-=======
--- Date Created: 03/26/2019 14:07:59
--- Generated from EDMX file: C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
->>>>>>> 9780a928a280771396c6b0f11aa004081c2c979a
->>>>>>> cf310a2ee6f8456fa7247b342428676ce0842128
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -36,13 +18,13 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK__Cohort__streamID__3A81B327]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Cohort] DROP CONSTRAINT [FK__Cohort__streamID__3A81B327];
+    ALTER TABLE [dbo].[Cohorts] DROP CONSTRAINT [FK__Cohort__streamID__3A81B327];
 GO
 IF OBJECT_ID(N'[dbo].[FK__Trainer__cohortI__4222D4EF]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Trainer] DROP CONSTRAINT [FK__Trainer__cohortI__4222D4EF];
+    ALTER TABLE [dbo].[Trainers] DROP CONSTRAINT [FK__Trainer__cohortI__4222D4EF];
 GO
 IF OBJECT_ID(N'[dbo].[FK__Trainer__userID__412EB0B6]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Trainer] DROP CONSTRAINT [FK__Trainer__userID__412EB0B6];
+    ALTER TABLE [dbo].[Trainers] DROP CONSTRAINT [FK__Trainer__userID__412EB0B6];
 GO
 IF OBJECT_ID(N'[dbo].[FK__Users__cohortID__3E52440B]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK__Users__cohortID__3E52440B];
@@ -55,17 +37,20 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Cohort]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Cohort];
+IF OBJECT_ID(N'[dbo].[Cohorts]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cohorts];
+GO
+IF OBJECT_ID(N'[dbo].[DeletedUsers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeletedUsers];
 GO
 IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Roles];
 GO
-IF OBJECT_ID(N'[dbo].[Stream]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Stream];
+IF OBJECT_ID(N'[dbo].[Streams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Streams];
 GO
-IF OBJECT_ID(N'[dbo].[Trainer]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Trainer];
+IF OBJECT_ID(N'[dbo].[Trainers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Trainers];
 GO
 IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];
@@ -124,11 +109,26 @@ CREATE TABLE [dbo].[Users] (
     [age] int  NULL,
     [gender] varchar(50)  NULL,
     [email] varchar(max)  NULL,
-    [upassword] varchar(max)  NULL,
     [passwordSalt] varchar(max)  NULL,
     [passwordHash] varchar(max)  NULL,
     [roleID] int  NOT NULL,
     [cohortID] int  NOT NULL
+);
+GO
+
+-- Creating table 'DeletedUsers'
+CREATE TABLE [dbo].[DeletedUsers] (
+    [id] int IDENTITY(1,1) NOT NULL,
+    [userID] int  NULL,
+    [firstName] varchar(50)  NULL,
+    [lastName] varchar(50)  NULL,
+    [age] int  NULL,
+    [gender] varchar(50)  NULL,
+    [email] varchar(max)  NULL,
+    [passwordSalt] varchar(max)  NULL,
+    [passwordHash] varchar(max)  NULL,
+    [roleID] int  NULL,
+    [cohortID] int  NULL
 );
 GO
 
@@ -164,6 +164,12 @@ GO
 ALTER TABLE [dbo].[Users]
 ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([userID] ASC);
+GO
+
+-- Creating primary key on [id] in table 'DeletedUsers'
+ALTER TABLE [dbo].[DeletedUsers]
+ADD CONSTRAINT [PK_DeletedUsers]
+    PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
 -- --------------------------------------------------

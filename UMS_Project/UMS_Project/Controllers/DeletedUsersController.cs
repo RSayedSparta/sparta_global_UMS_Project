@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UMS_Project;
+using UMS_Project.AuthData;
 
 namespace UMS_Project.Controllers
 {
+    [AuthorizationFilter]
     public class DeletedUsersController : Controller
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
@@ -18,75 +20,6 @@ namespace UMS_Project.Controllers
         public ActionResult Index()
         {
             return View(db.DeletedUsers.ToList());
-        }
-
-        // GET: DeletedUsers/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DeletedUser deletedUser = db.DeletedUsers.Find(id);
-            if (deletedUser == null)
-            {
-                return HttpNotFound();
-            }
-            return View(deletedUser);
-        }
-
-        // GET: DeletedUsers/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: DeletedUsers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,userID,firstName,lastName,age,gender,email,passwordSalt,passwordHash,roleID,cohortID")] DeletedUser deletedUser)
-        {
-            if (ModelState.IsValid)
-            {
-                db.DeletedUsers.Add(deletedUser);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(deletedUser);
-        }
-
-        // GET: DeletedUsers/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DeletedUser deletedUser = db.DeletedUsers.Find(id);
-            if (deletedUser == null)
-            {
-                return HttpNotFound();
-            }
-            return View(deletedUser);
-        }
-
-        // POST: DeletedUsers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,userID,firstName,lastName,age,gender,email,passwordSalt,passwordHash,roleID,cohortID")] DeletedUser deletedUser)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(deletedUser).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(deletedUser);
         }
 
         // GET: DeletedUsers/Restore/5

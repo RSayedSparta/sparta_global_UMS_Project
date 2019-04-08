@@ -4,11 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Deleted Users</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -28,12 +25,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.passwordSalt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.passwordHash)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.roleID)
@@ -65,20 +56,12 @@
             @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.passwordSalt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.passwordHash)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.roleID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.cohortID)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
             @Html.ActionLink("Restore", "Restore", new { id=item.id })
         </td>
     </tr>

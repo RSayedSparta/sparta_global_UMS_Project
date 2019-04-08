@@ -263,10 +263,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Details.cshtml" />
-    <Content Include="Views\DeletedUsers\Create.cshtml" />
     <Content Include="Views\DeletedUsers\Restore.cshtml" />
-    <Content Include="Views\DeletedUsers\Details.cshtml" />
-    <Content Include="Views\DeletedUsers\Edit.cshtml" />
     <Content Include="Views\DeletedUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
