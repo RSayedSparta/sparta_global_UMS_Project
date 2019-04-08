@@ -17,10 +17,7 @@ namespace UMS_Project
     public partial class Cohort
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-<<<<<<< HEAD
 
-=======
->>>>>>> 24b4b31d5b25751e5522419a8371d237db6bc204
         public Cohort()
         {
             this.Trainers = new HashSet<Trainer>();
