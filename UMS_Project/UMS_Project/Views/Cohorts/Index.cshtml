@@ -9,67 +9,83 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.cohortName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hasTA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.clocation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.maximumSeats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.minimumSeats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stream.streamName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cohortName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.startDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.endDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hasTA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clocation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.maximumSeats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.minimumSeats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stream.streamName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cohortID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cohortID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cohortID })
-        </td>
-    </tr>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
 }
-</table>
-@Html.Action("Index", "Users")
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Cohort Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+     
+            </th>
+            <th>
+                @Html.ActionLink("Start date", "Index", new { sortOrder = ViewBag.DateSortParm })
+             
+            </th>
+            <th>
+                @Html.ActionLink("End Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+                
+            </th>
+            <th>
+                @Html.ActionLink("HasTA", "Index", new { sortOrder = ViewBag.NameSortParm })
+              
+            </th>
+            <th>
+                @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.NameSortParm })
+                
+            </th>
+            <th>
+                @Html.ActionLink("Maximum Seats", "Index", new { sortOrder = ViewBag.NameSortParm })
+              
+            </th>
+            <th>
+                @Html.ActionLink("Minimum seats", "Index", new { sortOrder = ViewBag.NameSortParm })
+                
+            </th>
+            <th>
+                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                @Html.DisplayNameFor(model => model.Stream.streamName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cohortName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.endDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hasTA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.maximumSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.minimumSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stream.streamName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.cohortID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.cohortID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.cohortID })
+                </td>
+            </tr>
+        }
+    </table>
+    @Html.Action("Index", "Users")

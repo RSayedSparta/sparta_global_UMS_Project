@@ -23,6 +23,7 @@ namespace UMS_Project.Controllers
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "roleDescription_desc" : "";
             var roles = from r in db.Roles
                         select r;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 roles = roles.Where(r => r.roleName.Contains(searchString)

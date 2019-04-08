@@ -29,41 +29,42 @@ namespace UMS_Project.Controllers
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "maxCapacity_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "MinCapacity_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "streamName_desc" : "";
-            var cohorts = from c in db.Cohorts
+
+            var cohort = from c in db.Cohorts
                         select c;
             if (!String.IsNullOrEmpty(searchString))
             {
-                cohorts = cohorts.Where(c => c.cohortName.Contains(searchString));                       
+                cohort = cohort.Where(c => c.cohortName.Contains(searchString));                       
             }
 
             switch (sortOrder)
             {
                 case "cohortName_desc":
-                    cohorts = cohorts.OrderByDescending(c => c.cohortName);
+                    cohort = cohort.OrderByDescending(c => c.cohortName);
                     break;
                 case "startdate_desc":
-                    cohorts = cohorts.OrderBy(c => c.age);
+                    cohort = cohort.OrderBy(c => c.startDate);
                     break;
                 case "enddate_desc":
-                    cohorts = cohorts.OrderByDescending(u => u.lastName);
+                    cohort = cohort.OrderByDescending(c => c.endDate);
                     break;
                 case "hasTA_desc":
-                    cohorts = cohorts.OrderByDescending(u => u.gender);
+                    cohort = cohort.OrderByDescending(c => c.hasTA);
                     break;
                 case "location_desc":
-                    cohorts = cohorts.OrderByDescending(u => u.email);
+                    cohort = cohort.OrderByDescending(c => c.clocation);
                     break;
                 case "maxCapacity_desc":
-                    cohorts = cohorts.OrderByDescending(u => u.cohortID);
+                    cohort = cohort.OrderByDescending(c => c.maximumSeats);
                     break;
                 case "MinCapacity_desc":
-                    cohorts = cohorts.OrderByDescending(u => u.roleID);
+                    cohort = cohort.OrderByDescending(c => c.minimumSeats);
                     break;
-                case "streamName_desc:
-                    users = users.OrderByDescending(u => u.roleID);
+                case "streamName_desc":
+                    cohort = cohort.OrderByDescending(c => c.streamID);
                     break;
                 default:
-                    users = users.OrderBy(u => u.firstName);
+                    cohort = cohort.OrderBy(c => c.cohortName);
                     break;
             }
 

@@ -24,6 +24,7 @@ namespace UMS_Project.Controllers
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "email_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "cohortName_desc" : "";
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "roleName_desc" : "";
+
             var users = from u in db.Users
                            select u;
             if (!String.IsNullOrEmpty(searchString))
@@ -91,7 +92,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,confirmPassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
 
             string salt = PasswordSecurity.GenerateSalt(4);
