@@ -11,10 +11,7 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class DeletedUser
     {
         public int id { get; set; }
@@ -28,7 +25,5 @@ namespace UMS_Project
         public string passwordHash { get; set; }
         public Nullable<int> roleID { get; set; }
         public Nullable<int> cohortID { get; set; }
-        [NotMapped]
-        public string password { get; set; }
     }
 }
