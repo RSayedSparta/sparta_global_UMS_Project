@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
-using System.Web;
 using System.Web.Mvc;
 using UMS_Project.AuthData;
 
@@ -17,9 +15,49 @@ namespace UMS_Project.Controllers
 
         // GET: Users
         [AuthorizationFilter]
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var users = db.Users.Include(u => u.Cohort).Include(u => u.Role);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "firstname_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "lastname_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "age" ? "age_desc" : "age";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "gender_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "email_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "cohortName_desc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "roleName_desc" : "";
+            var users = from u in db.Users
+                           select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(u => u.lastName.Contains(searchString)
+                                       || u.firstName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "firstname_desc":
+                    users = users.OrderByDescending(u => u.firstName);
+                    break;
+                case "age":
+                    users = users.OrderBy(u => u.age);
+                    break;
+                case "lastname_desc":
+                    users = users.OrderByDescending(u => u.lastName);
+                    break;
+                case "gender_desc":
+                    users = users.OrderByDescending(u => u.gender);
+                    break;
+                case "email_desc":
+                    users = users.OrderByDescending(u => u.email);
+                    break;
+                case "cohortName_desc":
+                    users = users.OrderByDescending(u => u.cohortID);
+                    break;
+                case "roleName_desc":
+                    users = users.OrderByDescending(u => u.roleID);
+                    break;
+                default:
+                    users = users.OrderBy(u => u.firstName);
+                    break;
+            }
             return View(users.ToList());
         }
 
@@ -52,7 +90,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,confirmPassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
 
             string salt = PasswordSecurity.GenerateSalt(4);
@@ -61,16 +99,26 @@ namespace UMS_Project.Controllers
             string hash = PasswordSecurity.GenerateHash(user.password, salt);
             user.passwordHash = hash;
 
-            if (ModelState.IsValid)
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Login","Login");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    if (Session["Role"].ToString() == "1")
+                    {
+                        return RedirectToAction("Index", "Users");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Login", "Login");
+                    }
+                    
+                }
 
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
-            return View(user);
+                ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+                return View(user);
+
+         
         }
 
         // GET: Users/Edit/5
@@ -139,6 +187,18 @@ namespace UMS_Project.Controllers
         {
             User user = db.Users.Find(id);
             db.Users.Remove(user);
+            DeletedUser du = db.DeletedUsers.Create();
+            du.userID = user.userID;
+            du.firstName = user.firstName;
+            du.lastName = user.lastName;
+            du.age = user.age;
+            du.gender = user.gender;
+            du.email = user.email;
+            du.passwordSalt = user.passwordSalt;
+            du.passwordHash = user.passwordHash;
+            du.roleID = user.roleID;
+            du.cohortID = user.cohortID;
+            db.DeletedUsers.Add(du);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -151,5 +211,8 @@ namespace UMS_Project.Controllers
             }
             base.Dispose(disposing);
         }
+       
+        
     }
+
 }

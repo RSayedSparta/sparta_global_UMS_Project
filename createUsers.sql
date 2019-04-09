@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INSERT INTO Users VALUES
  ('Markson', 'M', 20, 'Male', 'Markson@spartaglobal.com', NULL, NULL, '1', '1'),
  ('Jo', 'H', 20, 'Female', 'Jo@spartaglobal.com', NULL, NULL, '1', '1'),
@@ -20,3 +21,16 @@ INSERT INTO Users VALUES
  ('Theresa', 'May', 68, 'Female', 'TMayr@spartaglobal.com', NULL, NULL, '1', '2'),
  ('Angela', 'Merkle', 43, 'Male', 'TBlair@spartaglobal.com', NULL, NULL, '1', '2'),
  ('Florence', 'Nightingale', 43, 'Male', 'TBlair@spartaglobal.com', NULL, NULL, '1', '2')
+=======
+-- INSERT INTO Users VALUES
+--  ('Markson', 'M', 20, 'Male', 'Markson@spartaglobal.com',null, null, '1', '1'),
+--  ('Jo', 'H', 20, 'Female', 'Jo@spartaglobal.com', null, null, '1', '1'),
+--  ('Zoe', 'B', 20, 'Female', 'Zoe@spartaglobal.com', null, null, '1', '2')
+USE User_ManagementDB
+-- INSERT INTO Roles VALUES
+-- ('Trainer', 'In charge of a class')
+INSERT INTO Streams VALUES
+('Engineering', 'C#','13 weeks','Basic')
+INSERT INTO Cohorts VALUES
+('Engineering26', '2019/01/20','2019/04/19', 1, 'Rich', 12, 6, 1)
+>>>>>>> 7ff8fca6afbe4b4a4ee16e8fdbdf6b78946c0967

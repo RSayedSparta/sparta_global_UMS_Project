@@ -8,7 +8,8 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background: rgb(87,61,106);
+background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%, rgba(42,13,88,1) 35%);">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,13 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="@Url.Action("Index", "Home")" >
+                    <img alt="Widget View" src="@Url.Content("~/Content/sparta.png")"style="height:50px">
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("User", "Index", "Users")</li>
                     <li>@Html.ActionLink("Role", "Index", "Roles")</li>
                     <li>@Html.ActionLink("Stream", "Index", "Streams")</li>
@@ -33,6 +35,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
+
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
@@ -47,9 +50,10 @@
                     </li>
                     @if (@Session["Email"] != null)
                     {
-                        <li><a>Hello, @Session["Name"]! @Session["Email"]</a></li>
+                        <li><a>Hello, @Session["Name"] @Session["Email"]</a></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
                     }
-                    <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
+
                 </ul>
             </div>
         </div>
