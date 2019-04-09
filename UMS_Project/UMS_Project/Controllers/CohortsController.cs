@@ -18,7 +18,7 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Cohorts
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string Search_Data)
         {
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "cohortName_desc" : "";
@@ -32,9 +32,9 @@ namespace UMS_Project.Controllers
 
             var cohort = from c in db.Cohorts
                         select c;
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(Search_Data))
             {
-                cohort = cohort.Where(c => c.cohortName.Contains(searchString));                       
+                cohort = cohort.Where(c => c.cohortName.ToUpper().Contains(Search_Data.ToUpper()));
             }
 
             switch (sortOrder)
