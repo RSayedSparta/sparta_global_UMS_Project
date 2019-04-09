@@ -50,10 +50,11 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                     </li>
                     @if (@Session["Email"] != null)
                     {
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a>Hello, @Session["Name"] @Session["Email"]</a></li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    </ul>
                     }
-
                 </ul>
             </div>
         </div>

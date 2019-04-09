@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using UMS_Project;
 using UMS_Project.AuthData;
 using UMS_Project.Controllers;
+using UMS_Project.Models;
 
 namespace UMS_Project.Controllers
 {
