@@ -90,11 +90,8 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< HEAD
         public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,confirmPassword, password,passwordSalt,passwordHash,roleID,cohortID")] User user)
-=======
-        public ActionResult Create([Bind(Include = "userID,firstName,lastName,age,gender,email,password,confirmPassword,passwordSalt,passwordHash,roleID,cohortID")] User user)
->>>>>>> cf5813c6b561eaf13a7d1ab22d4a781e6b62311f
+
         {
 
             string salt = PasswordSecurity.GenerateSalt(4);
