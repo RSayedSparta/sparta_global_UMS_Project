@@ -85,7 +85,15 @@ namespace UMS_Project.Controllers
         public ActionResult Create()
         {
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName");
+            if (Session["Role"].ToString() != "1")
+            {
+                ViewBag.roleID = new SelectList(db.Roles.Where(r => r.roleID != 1), "roleID", "roleName");
+            }
+            else
+            {
+                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName");
+            }
+            
             return View();
         }
 
@@ -115,7 +123,6 @@ namespace UMS_Project.Controllers
                     {
                         return RedirectToAction("Login", "Login");
                     }
-                    
                 }
 
                 ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
@@ -139,7 +146,15 @@ namespace UMS_Project.Controllers
                 return HttpNotFound();
             }
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+            if (Session["Role"].ToString() != "1")
+            {
+                int rID = (int)Session["Role"];
+                ViewBag.roleID = new SelectList(db.Roles.Where(r => r.roleID == rID), "roleID", "roleName");
+            }
+            else
+            {
+                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName");
+            }
             return View(user);
         }
 

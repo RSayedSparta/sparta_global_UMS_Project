@@ -27,6 +27,7 @@ namespace UMS_Project
 
 
         [Required]
+<<<<<<< HEAD
 
         public int cohortID { get; set; }
 
@@ -37,12 +38,26 @@ namespace UMS_Project
         [DisplayName("Start Date")]
         [Required]
         [Display]
+=======
+        public int cohortID { get; set; }
+        [Required]
+        [DisplayName("Cohort Name")]
+        public string cohortName { get; set; }
+        [DisplayName("Start Date")]
+>>>>>>> 801b156b74ba26c9aa7f8093a6f2ce272d945424
         public Nullable<System.DateTime> startDate { get; set; }
+        [DisplayName("End Date")]
         public Nullable<System.DateTime> endDate { get; set; }
+        [DisplayName("Has TA")]
         public Nullable<bool> hasTA { get; set; }
+        [Required]
+        [DisplayName("Location")]
         public string clocation { get; set; }
+        [DisplayName("Max Capacity")]
         public Nullable<int> maximumSeats { get; set; }
+        [DisplayName("Min capacity")]
         public Nullable<int> minimumSeats { get; set; }
+        [Required]
         public int streamID { get; set; }
 
         public virtual Stream Stream { get; set; }
