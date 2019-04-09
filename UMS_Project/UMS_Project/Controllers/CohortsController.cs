@@ -18,10 +18,19 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Cohorts
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var cohorts = db.Cohorts.Include(c => c.Stream);
-            return View(cohorts.ToList());
+            if (id == null)
+            {
+                var cohorts = db.Cohorts.Include(c => c.Stream);
+                return View(cohorts.ToList());
+            }
+            else
+            {
+                var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id);
+                return View(cohorts.ToList());
+            }
+
         }
 
         // GET: Cohorts/Details/5
