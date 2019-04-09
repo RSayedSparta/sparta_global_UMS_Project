@@ -83,7 +83,7 @@ namespace UMS_Project.Controllers
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
             if (Session["Role"].ToString() != "1")
             {
-                ViewBag.roleID = new SelectList(db.Roles.Where(r => r.roleName != "Admin"), "roleID", "roleName");
+                ViewBag.roleID = new SelectList(db.Roles.Where(r => r.roleID != 1), "roleID", "roleName");
             }
             else
             {
