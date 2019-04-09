@@ -31,5 +31,6 @@ namespace UMS_Project
         public virtual DbSet<Trainer> Trainers { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<DeletedUser> DeletedUsers { get; set; }
+
     }
 }

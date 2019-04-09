@@ -64,7 +64,7 @@
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="userID"/>
+            <PropertyRef Name="userID" />
           </Key>
           <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="firstName" Type="varchar" MaxLength="50" />
@@ -78,18 +78,6 @@
           <Property Name="cohortID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Cohort__streamID__3A81B327">
-          <End Role="Streams" Type="Self.Streams" Multiplicity="1" />
-          <End Role="Cohorts" Type="Self.Cohorts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Streams">
-              <PropertyRef Name="streamID" />
-            </Principal>
-            <Dependent Role="Cohorts">
-              <PropertyRef Name="streamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      <Association Name="FK__Cohorts__streamI__6477ECF3">
           <End Role="Streams" Type="Self.Streams" Multiplicity="1" />
           <End Role="Cohorts" Type="Self.Cohorts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -157,10 +145,6 @@
           <EntitySet Name="Trainers" EntityType="Self.Trainers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Cohort__streamID__3A81B327" Association="Self.FK__Cohort__streamID__3A81B327">
-            <End Role="Streams" EntitySet="Streams" />
-            <End Role="Cohorts" EntitySet="Cohorts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Cohorts__streamI__6477ECF3" Association="Self.FK__Cohorts__streamI__6477ECF3">
             <End Role="Streams" EntitySet="Streams" />
             <End Role="Cohorts" EntitySet="Cohorts" />
           </AssociationSet>
