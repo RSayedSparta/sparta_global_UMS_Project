@@ -25,6 +25,15 @@ namespace UMS_Project
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-        }
+
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //         "~/Scripts/slick/slick.css"));
+
+            //bundles.Add(new ScriptBundle("~/Scripts").Include(
+            //         "~/Scripts/slick/slick.min.js"));
+
+            //bundles.Add(new ScriptBundle("~/Scripts").Include(
+            //         "~/Scripts/Home.js"));
+        } 
     }
 }
