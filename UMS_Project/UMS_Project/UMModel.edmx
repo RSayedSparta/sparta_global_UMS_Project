@@ -18,6 +18,7 @@
           <Property Name="maximumSeats" Type="int" />
           <Property Name="minimumSeats" Type="int" />
           <Property Name="streamID" Type="int" Nullable="false" />
+          <Property Name="trainer" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DeletedUsers">
           <Key>
@@ -214,6 +215,7 @@
           <NavigationProperty Name="Stream" Relationship="User_ManagementDBModel.FK__Cohort__streamID__3A81B327" FromRole="Cohort" ToRole="Stream" />
           <NavigationProperty Name="Trainers" Relationship="User_ManagementDBModel.FK__Trainer__cohortI__4222D4EF" FromRole="Cohort" ToRole="Trainer" />
           <NavigationProperty Name="Users" Relationship="User_ManagementDBModel.FK__Users__cohortID__3E52440B" FromRole="Cohort" ToRole="User" />
+          <Property Name="trainer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -350,7 +352,8 @@
     <EntitySetMapping Name="Cohorts">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Cohort)">
         <MappingFragment StoreEntitySet="Cohorts">
-          <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+          <ScalarProperty Name="trainer" ColumnName="trainer" />
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
           <ScalarProperty Name="cohortName" ColumnName="cohortName" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="endDate" ColumnName="endDate" />

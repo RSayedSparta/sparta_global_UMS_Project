@@ -17,7 +17,7 @@ namespace UMS_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cohort()
         {
-            this.Trainers = new HashSet<Trainer>();
+           // this.Trainers = new HashSet<Trainer>();
             this.Users = new HashSet<User>();
         }
     
@@ -30,10 +30,11 @@ namespace UMS_Project
         public Nullable<int> maximumSeats { get; set; }
         public Nullable<int> minimumSeats { get; set; }
         public int streamID { get; set; }
+        public string trainer { get; set; }
     
         public virtual Stream Stream { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trainer> Trainers { get; set; }
+       // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual Trainer Trainers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }
