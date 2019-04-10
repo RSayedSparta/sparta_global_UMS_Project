@@ -70,7 +70,7 @@ namespace UMS_Project
         public string lastName { get; set; }
 
         [Required]
-
+        [RegularExpression(@"(1[6-9]|[2-9][0-9]|100)", ErrorMessage = "Age must be between 16 and 100")]
         [DisplayName("Age")]
 
         public Nullable<int> age { get; set; }
@@ -87,7 +87,7 @@ namespace UMS_Project
 
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@spartaglobal\.com)$", ErrorMessage = "Registration limited to 'spartaglobal.com'.")]
 
-        [EmailNotInDB]
+       // [EmailNotInDB]
 
         public string email { get; set; }
 

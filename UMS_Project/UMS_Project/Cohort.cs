@@ -11,13 +11,13 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-<<<<<<< HEAD
-    
-=======
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
->>>>>>> 801b156b74ba26c9aa7f8093a6f2ce272d945424
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class Cohort
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,11 +26,8 @@ namespace UMS_Project
             this.Trainers = new HashSet<Trainer>();
             this.Users = new HashSet<User>();
         }
-<<<<<<< HEAD
-    
-=======
+
         [Required]
->>>>>>> 801b156b74ba26c9aa7f8093a6f2ce272d945424
         public int cohortID { get; set; }
         [Required]
         [DisplayName("Cohort Name")]

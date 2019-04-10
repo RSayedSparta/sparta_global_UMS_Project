@@ -48,6 +48,7 @@ namespace UMS_Project.Controllers
                     Session["Name"] = usr.firstName;
                     Session["Role"] = usr.roleID;
                     Session["ID"] = usr.userID;
+                    Session.Timeout = 4;
                     if (Session["Role"].ToString() == "1")
                     {
                         return RedirectToAction("Index", "Users");
