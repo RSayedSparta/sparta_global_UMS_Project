@@ -38,6 +38,7 @@
         <th></th>
     </tr>
 
+<<<<<<< HEAD
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -71,5 +72,41 @@
         </td>
     </tr>
 }
+=======
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cohortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hasTA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maximumSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minimumSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stream.streamName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.cohortID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.cohortID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.cohortID })
+            </td>
+        </tr>
+    }
+>>>>>>> 7bbcab4065edffd8853a349dc2c68bd6d1ae0e8e
 </table>
 @Html.Action("Index", "Users")

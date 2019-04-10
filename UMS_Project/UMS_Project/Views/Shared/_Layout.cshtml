@@ -39,10 +39,11 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                                 @{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
+
                                     foreach (var item in query)
                                     {
                                         string name = item.streamName;
-                                        <li>@Html.ActionLink((@name).ToString(), "Details", "Streams", new { id = item.streamID }, null)</li>
+                                        <li>@Html.ActionLink((@name).ToString(), "Index", "Cohorts", new { @id = item.streamID } , null)</li>
                                     }
                                 }
                             </ul>
