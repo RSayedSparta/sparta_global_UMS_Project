@@ -50,7 +50,7 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                     </li>
                     @if (@Session["Email"] != null)
                     {
-                        <li><a>Hello, @Session["Name"] @Session["Email"]</a></li>
+                        <li><a>@Session["Name"] @Session["LastName"] @Session["Email"]</a></li>
                         <li>@Html.ActionLink("Logout", "Logout", "Login") </li>
                     }
 

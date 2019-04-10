@@ -46,6 +46,7 @@ namespace UMS_Project.Controllers
                     //Admin directed to user list table
                     Session["Email"] = usr.email;
                     Session["Name"] = usr.firstName;
+                    Session["LastName"] = usr.lastName;
                     Session["Role"] = usr.roleID;
                     Session["ID"] = usr.userID;
                     if (Session["Role"].ToString() == "1")

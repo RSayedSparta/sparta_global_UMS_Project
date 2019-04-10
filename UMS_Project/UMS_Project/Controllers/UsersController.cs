@@ -160,17 +160,17 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
+        public ActionResult Edit([Bind(Include = "userID,firstName,lastName,age,gender,email,confirmPassword,password,passwordSalt,passwordHash,roleID,cohortID")] User user)
         {
-
-            string salt = PasswordSecurity.GenerateSalt(4);
-            user.passwordSalt = salt;
-
-            string hash = PasswordSecurity.GenerateHash(user.password, salt);
-            user.passwordHash = hash;
-
             if (ModelState.IsValid)
             {
+                //ViewData["ModifyEmail"] = user.email;
+                string salt = PasswordSecurity.GenerateSalt(4);
+                user.passwordSalt = salt;
+
+                string hash = PasswordSecurity.GenerateHash(user.password, salt);
+                user.passwordHash = hash;
+
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", user);
