@@ -19,17 +19,68 @@ namespace UMS_Project.Controllers
     {
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
-       
+
         // GET: Cohorts
-        public ActionResult Index(int? PageNo)
+        public ActionResult Index(int? PageNo, string Sorting_Order, string searchString)
         {
-            var cohorts = db.Cohorts.Include(c => c.Stream);
-            return View(cohorts.ToList());
+            //var cohorts = db.Cohorts.Include(c => c.Stream);
+
+
+            //ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "Location_Description" : "";
+            //ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "Name_Description" : "";
+            //ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "TA?" : "";
+            //ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "EndDate_Description" : "";
+            //ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "MaximumSeats_Description" : "";
+            //ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "MinimumSeats_Description" : "";
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(Sorting_Order) ? "Location_Description" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(Sorting_Order) ? "CohortName_Description" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(Sorting_Order) ? "TA?" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(Sorting_Order) ? "EndDate_Description" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(Sorting_Order) ? "MaximumSeats_Description" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(Sorting_Order) ? "MinimumSeats_Description" : "";
+           
+
+
+            //ViewBag.SortingDate = Sorting_Order == "Date_Enroll" ? "Date_Description" : "Date";
+
+            var cohorts = from coh in db.Cohorts select coh;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                cohorts = cohorts.Where(coh => coh.clocation.Contains(searchString)
+                                       || coh.cohortName.Contains(searchString));
+            }
+            switch (Sorting_Order)
+            {
+                case "Location_Description":
+                    cohorts = cohorts.OrderByDescending(coh => coh.clocation);
+                    break;
+                case "CohortName_Description":
+                    cohorts = cohorts.OrderBy(coh => coh.cohortName);
+                    break;
+                case "TA?":
+                    cohorts = cohorts.OrderByDescending(coh => coh.hasTA);
+                    break;
+                case "EndDate_Description":
+                    cohorts = cohorts.OrderByDescending(coh => coh.endDate);
+                    break;
+                case "MaximumSeats_Description":
+                    cohorts = cohorts.OrderByDescending(coh => coh.maximumSeats);
+                    break;
+                case "MinimumSeats_Description":
+                    cohorts = cohorts.OrderByDescending(coh => coh.minimumSeats);
+                    break;
+                default:
+                    cohorts = cohorts.OrderBy(coh => coh.startDate);
+                    break;
+
+            }
             int Size_Of_Page = 10;
             int No_Of_Page = PageNo ?? 1;
             return View(cohorts.ToPagedList(No_Of_Page, Size_Of_Page));
         }
        
+
 
         // GET: Cohorts
         public ActionResult Cohorts()

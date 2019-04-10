@@ -27,24 +27,13 @@ namespace UMS_Project
 
 
         [Required]
-<<<<<<< HEAD
-
         public int cohortID { get; set; }
-
         [Required]
         [DisplayName("Cohort Name")]
-
         public string cohortName { get; set; }
-        [DisplayName("Start Date")]
         [Required]
         [Display]
-=======
-        public int cohortID { get; set; }
-        [Required]
-        [DisplayName("Cohort Name")]
-        public string cohortName { get; set; }
         [DisplayName("Start Date")]
->>>>>>> 801b156b74ba26c9aa7f8093a6f2ce272d945424
         public Nullable<System.DateTime> startDate { get; set; }
         [DisplayName("End Date")]
         public Nullable<System.DateTime> endDate { get; set; }
