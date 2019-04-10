@@ -21,8 +21,22 @@ namespace UMS_Project.Controllers
         // GET: Cohorts
         public ActionResult Index()
         {
-            var cohorts = db.Cohorts.Include(c => c.Stream);
+            var cohorts = db.Cohorts.Include(c => c.Stream).Include(c => c.Users);
             return View(cohorts.ToList());
+        }
+
+        public ActionResult Index(int? id, int? userID)
+        {
+            var viewModel = new CohortUsers();
+            viewModel.Cohorts = db.Cohorts
+                .Include(c => c.Users)
+                .Include(c => c.Users.Select(c => c.firstName))
+                .OrderBy(c => c.cohortName);
+
+            if (id != null)
+            {
+
+            }
         }
 
         // GET: Cohorts/Details/5
