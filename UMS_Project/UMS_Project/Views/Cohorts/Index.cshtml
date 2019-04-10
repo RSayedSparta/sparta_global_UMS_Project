@@ -75,6 +75,7 @@
             </td>
         </tr>
     }
+<<<<<<< HEAD
 
 </table>
    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
@@ -82,3 +83,7 @@
     new { PageNo, SortingOrder= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
 
 
+=======
+</table>
+@Html.Action("Index", "Users")
+>>>>>>> 7bbcab4065edffd8853a349dc2c68bd6d1ae0e8e

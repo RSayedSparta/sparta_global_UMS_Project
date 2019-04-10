@@ -21,6 +21,7 @@ namespace UMS_Project.Controllers
 
 
         // GET: Cohorts
+<<<<<<< HEAD
         public ActionResult Index(int? PageNo, string Sorting_Order, string searchString)
         {
             //var cohorts = db.Cohorts.Include(c => c.Stream);
@@ -86,6 +87,21 @@ namespace UMS_Project.Controllers
         public ActionResult Cohorts()
         {
             return View();
+=======
+        public ActionResult Index(int? id)
+        {
+            if (id == null)
+            {
+                var cohorts = db.Cohorts.Include(c => c.Stream);
+                return View(cohorts.ToList());
+            }
+            else
+            {
+                var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id);
+                return View(cohorts.ToList());
+            }
+
+>>>>>>> 7bbcab4065edffd8853a349dc2c68bd6d1ae0e8e
         }
 
         // GET: Cohorts/Details/5
