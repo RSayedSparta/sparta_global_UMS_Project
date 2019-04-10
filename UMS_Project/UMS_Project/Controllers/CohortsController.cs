@@ -18,6 +18,7 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Cohorts
+<<<<<<< HEAD
         public ActionResult Index(string sortOrder, string Search_Data)
         {
 
@@ -70,6 +71,21 @@ namespace UMS_Project.Controllers
 
             var cohorts = db.Cohorts.Include(c => c.Stream);
             return View(cohorts.ToList());
+=======
+        public ActionResult Index(int? id)
+        {
+            if (id == null)
+            {
+                var cohorts = db.Cohorts.Include(c => c.Stream);
+                return View(cohorts.ToList());
+            }
+            else
+            {
+                var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id);
+                return View(cohorts.ToList());
+            }
+
+>>>>>>> 7bbcab4065edffd8853a349dc2c68bd6d1ae0e8e
         }
 
         // GET: Cohorts/Details/5
