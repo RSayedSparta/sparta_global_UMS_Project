@@ -52,6 +52,7 @@
           <Property Name="specialization" Type="varchar" MaxLength="50" />
           <Property Name="duration" Type="varchar(max)" />
           <Property Name="curriculum" Type="varchar(max)" />
+          <Property Name="course_criteria" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Trainers">
           <Key>
@@ -233,6 +234,7 @@
           <Property Name="duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cohorts" Relationship="User_ManagementDBModel.FK__Cohort__streamID__3A81B327" FromRole="Stream" ToRole="Cohort" />
+          <Property Name="course_criteria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Trainer">
           <Key>
@@ -372,7 +374,8 @@
     <EntitySetMapping Name="Streams">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Stream)">
         <MappingFragment StoreEntitySet="Streams">
-          <ScalarProperty Name="streamID" ColumnName="streamID" />
+          <ScalarProperty Name="course_criteria" ColumnName="course_criteria" />
+                <ScalarProperty Name="streamID" ColumnName="streamID" />
           <ScalarProperty Name="streamName" ColumnName="streamName" />
           <ScalarProperty Name="specialization" ColumnName="specialization" />
           <ScalarProperty Name="duration" ColumnName="duration" />

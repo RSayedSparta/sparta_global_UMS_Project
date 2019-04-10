@@ -58,7 +58,7 @@ namespace UMS_Project.Controllers
             u.roleID = (int)deletedUser.roleID;
             u.cohortID = (int)deletedUser.cohortID;
             u.password = "Empty123";
-            //u.confirmPassword = "Empty123";
+            u.confirmPassword = "Empty123";
             db.Users.Add(u);
             db.SaveChanges();
             return RedirectToAction("Index","Users");
