@@ -19,37 +19,38 @@ namespace UMS_Project.Controllers
         // GET: Roles
         public ActionResult Index(string sort_Order, string searchString)
         {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sort_Order) ? "roleName_desc" : "";
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sort_Order) ? "roleDescription_desc" : "";
-
-            var roles = from r in db.Roles
-                        select r;
-
-            if (!String.IsNullOrEmpty(searchString))
             {
-                roles = roles.Where(r => r.roleName.Contains(searchString)
-                                       || r.roleDescription.Contains(searchString));
+                ViewBag.NameSortParm1 = String.IsNullOrEmpty(sort_Order) ? "roleName_desc" : "";
+                ViewBag.NameSortParm1 = String.IsNullOrEmpty(sort_Order) ? "roleDescription_desc" : "";
+
+                var roles = from r in db.Roles
+                            select r;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    roles = roles.Where(r => r.roleName.Contains(searchString)
+                                           || r.roleDescription.Contains(searchString));
+                }
+                switch (sort_Order)
+                {
+                    case "roleName_desc":
+                        roles = roles.OrderByDescending(r => r.roleName);
+                        break;
+                    case "roleDescription_desc":
+                        roles = roles.OrderByDescending(r => r.roleDescription);
+                        break;
+                    default:
+                        roles = roles.OrderBy(r => r.roleName);
+                        break;
+                }
+
             }
-            switch (sort_Order)
-            {
-                case "roleName_desc":
-                    roles = roles.OrderByDescending(r => r.roleName);
-                    break;
-                case "roleDescription_desc":
-                    roles = roles.OrderByDescending(r => r.roleDescription);
-                    break;
-                default:
-                    roles = roles.OrderBy(r => r.roleName);
-                    break;
-            }
+
 
             return View(db.Roles.ToList());
         }
-        // GET: Roles
-        public ActionResult Roles()
-        {
-            return View();
-        }
+
+     
         
 
         // GET: Roles/Details/5

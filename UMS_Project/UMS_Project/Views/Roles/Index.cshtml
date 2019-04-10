@@ -10,22 +10,22 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+
 @using (Html.BeginForm())
 {
     <p>
-        Find by name: @Html.TextBox("searchString", ViewBag.FilterValue as string)
-        <input type="submit" value="Search" />
+        Search: @Html.TextBox("searchString")
+        <input id="roles1 " type="submit" value="Search" />
     </p>
 }
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Role Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Role Name", "Index2", new { sort_Order = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.ActionLink("Role Description", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Role Description", "Index2", new { sort_Order = ViewBag.NameSortParm })
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
