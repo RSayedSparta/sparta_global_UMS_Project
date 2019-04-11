@@ -19,6 +19,7 @@ namespace UMS_Project.Controllers
         // GET: Trainers
         public ActionResult Index()
         {
+            
             var trainers = db.Trainers.Include(t => t.Cohort).Include(t => t.User);
             return View(trainers.ToList());
         }

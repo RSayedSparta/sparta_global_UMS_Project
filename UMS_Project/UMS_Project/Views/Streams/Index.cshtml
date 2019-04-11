@@ -41,9 +41,12 @@
             @Html.DisplayFor(modelItem => item.curriculum)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.streamID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.streamID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.streamID })
+            @Html.DisplayFor(modelItem => item.course_criteria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.streamID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.streamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.streamID })
         </td>
     </tr>
 }

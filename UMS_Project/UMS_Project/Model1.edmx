@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="User_ManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cohorts">
+          <Key>
+            <PropertyRef Name="cohortID" />
+          </Key>
+          <Property Name="cohortID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cohortName" Type="varchar(max)" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+          <Property Name="hasTA" Type="bit" />
+          <Property Name="clocation" Type="varchar(max)" />
+          <Property Name="maximumSeats" Type="int" />
+          <Property Name="minimumSeats" Type="int" />
+          <Property Name="streamID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="varchar" MaxLength="50" />
+          <Property Name="roleDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Streams">
+          <Key>
+            <PropertyRef Name="streamID" />
+          </Key>
+          <Property Name="streamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="streamName" Type="varchar" MaxLength="50" />
+          <Property Name="specialization" Type="varchar" MaxLength="50" />
+          <Property Name="duration" Type="varchar(max)" />
+          <Property Name="curriculum" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Trainers">
+          <Key>
+            <PropertyRef Name="trainerID" />
+          </Key>
+          <Property Name="trainerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trainerName" Type="varchar(max)" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="cohortID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="passwordSalt" Type="varchar(max)" />
+          <Property Name="passwordHash" Type="varchar(max)" />
+          <Property Name="roleID" Type="int" Nullable="false" />
+          <Property Name="cohortID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="User_ManagementDBModelStoreContainer">
+          <EntitySet Name="Cohorts" EntityType="Self.Cohorts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Streams" EntityType="Self.Streams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="User_ManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cohort">
+          <Key>
+            <PropertyRef Name="cohortID" />
+          </Key>
+          <Property Name="cohortID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cohortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+          <Property Name="hasTA" Type="Boolean" />
+          <Property Name="clocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="maximumSeats" Type="Int32" />
+          <Property Name="minimumSeats" Type="Int32" />
+          <Property Name="streamID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="roleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Stream">
+          <Key>
+            <PropertyRef Name="streamID" />
+          </Key>
+          <Property Name="streamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="streamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="trainerID" />
+          </Key>
+          <Property Name="trainerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trainerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="cohortID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="passwordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="passwordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="roleID" Type="Int32" Nullable="false" />
+          <Property Name="cohortID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="User_ManagementDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cohorts" EntityType="Self.Cohort" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Streams" EntityType="Self.Stream" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainer" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="User_ManagementDBModelStoreContainer" CdmEntityContainer="User_ManagementDBEntities1">
+          <EntitySetMapping Name="Cohorts">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Cohort">
+              <MappingFragment StoreEntitySet="Cohorts">
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+                <ScalarProperty Name="cohortName" ColumnName="cohortName" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="hasTA" ColumnName="hasTA" />
+                <ScalarProperty Name="clocation" ColumnName="clocation" />
+                <ScalarProperty Name="maximumSeats" ColumnName="maximumSeats" />
+                <ScalarProperty Name="minimumSeats" ColumnName="minimumSeats" />
+                <ScalarProperty Name="streamID" ColumnName="streamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Streams">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Stream">
+              <MappingFragment StoreEntitySet="Streams">
+                <ScalarProperty Name="streamID" ColumnName="streamID" />
+                <ScalarProperty Name="streamName" ColumnName="streamName" />
+                <ScalarProperty Name="specialization" ColumnName="specialization" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="curriculum" ColumnName="curriculum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainers">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.Trainer">
+              <MappingFragment StoreEntitySet="Trainers">
+                <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+                <ScalarProperty Name="trainerName" ColumnName="trainerName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="User_ManagementDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="passwordSalt" ColumnName="passwordSalt" />
+                <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
