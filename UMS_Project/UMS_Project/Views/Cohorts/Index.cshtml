@@ -36,7 +36,7 @@
             @Html.DisplayNameFor(model => model.Stream.streamName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.trainer)
+            @Html.DisplayNameFor(model => model.trainerID)
         </th>
         <th></th>
     </tr>
@@ -69,7 +69,7 @@
             @Html.DisplayFor(modelItem => item.Stream.streamName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.trainer)
+            @Html.DisplayFor(modelItem => item.trainerID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.cohortID }) |

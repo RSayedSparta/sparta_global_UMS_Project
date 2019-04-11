@@ -121,8 +121,8 @@ namespace UMS_Project.Controllers
                     }
                 }
 
-                ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-                ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+               // ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+                //ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
                 return View(user);
 
          
@@ -172,10 +172,10 @@ namespace UMS_Project.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", user);
+                return RedirectToAction("Index", user);
             }
-            ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
-            ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
+           // ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
+           // ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);
             return View(user);
         }
 
