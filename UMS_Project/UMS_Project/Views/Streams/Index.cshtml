@@ -39,6 +39,7 @@
         <th></th>
     </tr>
 
+<<<<<<< HEAD
     @foreach (var item in Model)
     {
         <tr>
@@ -61,6 +62,32 @@
             </td>
         </tr>
     }
+=======
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.streamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.curriculum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course_criteria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.streamID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.streamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.streamID })
+        </td>
+    </tr>
+}
+>>>>>>> a1ddc96b764c56f5c92aa02b74de337f1a601bac
 
 </table>
  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount

@@ -11,13 +11,11 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Trainer
     {
-        [Required]
         public int trainerID { get; set; }
+<<<<<<< HEAD
 
         [Required]
         [DisplayName("Trainer Name")]   
@@ -27,8 +25,12 @@ namespace UMS_Project
         public int userID { get; set; }
 
         [Required]
+=======
+        public string trainerName { get; set; }
+        public int userID { get; set; }
+>>>>>>> a1ddc96b764c56f5c92aa02b74de337f1a601bac
         public int cohortID { get; set; }
-        
+    
         public virtual Cohort Cohort { get; set; }
         public virtual User User { get; set; }
     }
