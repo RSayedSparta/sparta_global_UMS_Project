@@ -16,8 +16,8 @@ namespace UMS_Project.Utilities
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var email = db.Users.SingleOrDefault(u => u.email == value.ToString());
-
-                if (email == null)
+           // var user = db.Users.SingleOrDefault(u => u.email == value.ToString());
+            if (email == null)
                 {
                     return ValidationResult.Success;
 

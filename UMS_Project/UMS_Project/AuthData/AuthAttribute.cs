@@ -12,7 +12,7 @@ namespace UMS_Project.AuthData
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
 
-                if (filterContext.HttpContext.Session["Role"].ToString() == "0")
+                if (filterContext.HttpContext.Session["Role"].ToString() == "0" )
                 {
                     var Url = new UrlHelper(filterContext.RequestContext);
                     var url = Url.Action("Login", "Login");
