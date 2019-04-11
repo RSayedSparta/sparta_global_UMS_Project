@@ -22,12 +22,12 @@ namespace UMS_Project.Controllers
         {
             if (id == null)
             {
-                var cohorts = db.Cohorts.Include(c => c.Stream);
+                var cohorts = db.Cohorts.Include(c => c.Stream).Include(c=> c.Trainer1.User);
                 return View(cohorts.ToList());
             }
             else
             {
-                var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id);
+                var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id).Include(c => c.Trainer1.User);
                 return View(cohorts.ToList());
             }
 
@@ -52,6 +52,7 @@ namespace UMS_Project.Controllers
         public ActionResult Create()
         {
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName");
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName");
             return View();
         }
 
@@ -60,7 +61,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "cohortID,cohortName,startDate,endDate,hasTA,clocation,maximumSeats,minimumSeats,streamID")] Cohort cohort)
+        public ActionResult Create([Bind(Include = "cohortID,cohortName,startDate,endDate,hasTA,clocation,maximumSeats,minimumSeats,streamID,trainerID")] Cohort cohort)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +71,7 @@ namespace UMS_Project.Controllers
             }
 
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName", cohort.trainerID);
             return View(cohort);
         }
 
@@ -86,6 +88,7 @@ namespace UMS_Project.Controllers
                 return HttpNotFound();
             }
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName", cohort.trainerID);
             return View(cohort);
         }
 
@@ -94,7 +97,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "cohortID,cohortName,startDate,endDate,hasTA,clocation,maximumSeats,minimumSeats,streamID")] Cohort cohort)
+        public ActionResult Edit([Bind(Include = "cohortID,cohortName,startDate,endDate,hasTA,clocation,maximumSeats,minimumSeats,streamID,trainerID")] Cohort cohort)
         {
             if (ModelState.IsValid)
             {
@@ -103,6 +106,7 @@ namespace UMS_Project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName", cohort.trainerID);
             return View(cohort);
         }
 

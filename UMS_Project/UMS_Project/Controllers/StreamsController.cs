@@ -32,7 +32,6 @@ namespace UMS_Project.Controllers
             }
 
             Stream stream = db.Streams.Find(id);
-            //Stream stream = db.Streams.Single(s => s.streamName == streamName);
 
             if (stream == null)
             {
@@ -52,7 +51,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "streamID,streamName,specialization,duration,curriculum")] Stream stream)
+        public ActionResult Create([Bind(Include = "streamID,streamName,specialization,duration,curriculum,course_criteria")] Stream stream)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +83,7 @@ namespace UMS_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "streamID,streamName,specialization,duration,curriculum")] Stream stream)
+        public ActionResult Edit([Bind(Include = "streamID,streamName,specialization,duration,curriculum,course_criteria")] Stream stream)
         {
             if (ModelState.IsValid)
             {

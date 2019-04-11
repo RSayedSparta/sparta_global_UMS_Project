@@ -236,7 +236,11 @@
           <NavigationProperty Name="Trainers" Relationship="User_ManagementDBModel.FK__Trainer__cohortI__4222D4EF" FromRole="Cohort" ToRole="Trainer" />
           <NavigationProperty Name="Users" Relationship="User_ManagementDBModel.FK__Users__cohortID__3E52440B" FromRole="Cohort" ToRole="User" />
           <Property Name="trainerID" Type="Int32" />
+<<<<<<< HEAD
           <NavigationProperty Name="Trainer" Relationship="User_ManagementDBModel.FK_Trainer_Cohort" FromRole="Cohort" ToRole="Trainer" />
+=======
+          <NavigationProperty Name="Trainer1" Relationship="User_ManagementDBModel.FK_Trainer_Cohort" FromRole="Cohort" ToRole="Trainer" />
+>>>>>>> 20a1e54189d41d5b67e9ed550fc15eeb9c454526
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -386,7 +390,11 @@
     <EntitySetMapping Name="Cohorts">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Cohort)">
         <MappingFragment StoreEntitySet="Cohorts">
+<<<<<<< HEAD
                 <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+=======
+          <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+>>>>>>> 20a1e54189d41d5b67e9ed550fc15eeb9c454526
                 <ScalarProperty Name="cohortID" ColumnName="cohortID" />
           <ScalarProperty Name="cohortName" ColumnName="cohortName" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
@@ -411,12 +419,12 @@
     <EntitySetMapping Name="Streams">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Stream)">
         <MappingFragment StoreEntitySet="Streams">
-          <ScalarProperty Name="course_criteria" ColumnName="course_criteria" />
-                <ScalarProperty Name="streamID" ColumnName="streamID" />
+          <ScalarProperty Name="streamID" ColumnName="streamID" />
           <ScalarProperty Name="streamName" ColumnName="streamName" />
           <ScalarProperty Name="specialization" ColumnName="specialization" />
           <ScalarProperty Name="duration" ColumnName="duration" />
           <ScalarProperty Name="curriculum" ColumnName="curriculum" />
+          <ScalarProperty Name="course_criteria" ColumnName="course_criteria" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
