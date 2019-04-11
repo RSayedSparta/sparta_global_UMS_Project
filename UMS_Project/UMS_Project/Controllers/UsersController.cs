@@ -164,7 +164,6 @@ namespace UMS_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                //ViewData["ModifyEmail"] = user.email;
                 string salt = PasswordSecurity.GenerateSalt(4);
                 user.passwordSalt = salt;
 
