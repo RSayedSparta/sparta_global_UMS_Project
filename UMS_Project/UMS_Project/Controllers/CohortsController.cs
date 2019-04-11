@@ -52,7 +52,7 @@ namespace UMS_Project.Controllers
         public ActionResult Create()
         {
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName");
-            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "userID");
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName");
             return View();
         }
 
@@ -71,7 +71,7 @@ namespace UMS_Project.Controllers
             }
 
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
-            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "userID", cohort.trainerID);
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName", cohort.trainerID);
             return View(cohort);
         }
 
@@ -88,7 +88,7 @@ namespace UMS_Project.Controllers
                 return HttpNotFound();
             }
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
-            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "userID", cohort.trainerID);
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName", cohort.trainerID);
             return View(cohort);
         }
 
@@ -106,7 +106,7 @@ namespace UMS_Project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName", cohort.streamID);
-            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "userID", cohort.trainerID);
+            ViewBag.trainerID = new SelectList(db.Trainers, "trainerID", "trainerName", cohort.trainerID);
             return View(cohort);
         }
 
