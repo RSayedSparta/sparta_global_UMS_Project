@@ -36,7 +36,7 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
 
-                                @{
+                                @*@{
                                     User_ManagementDBEntities db = new User_ManagementDBEntities();
                                     var query = db.Streams.OrderBy(s => s.streamName);
 
@@ -45,7 +45,7 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                                         string name = item.streamName;
                                         <li>@Html.ActionLink((@name).ToString(), "Index", "Cohorts", new { @id = item.streamID } , null)</li>
                                     }
-                                }
+                                }*@
                             </ul>
                         </div>
                     </li>

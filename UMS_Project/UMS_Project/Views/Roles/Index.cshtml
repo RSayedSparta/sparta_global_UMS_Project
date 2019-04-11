@@ -15,16 +15,16 @@
 {
     <p>
         Search: @Html.TextBox("searchString")
-        <input id="roles1 " type="submit" value="Search" />
+        <input type="submit" value="Search" />
     </p>
 }
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Role Name", "Index2", new { sort_Order = ViewBag.NameSortParm })
+            @Html.ActionLink("Role Name", "Index", "Roles", new { sortOrder = ViewBag.roleName})
         </th>
         <th>
-            @Html.ActionLink("Role Description", "Index2", new { sort_Order = ViewBag.NameSortParm })
+            @Html.ActionLink("Role Description", "Index", "Roles", new { sortOrder = ViewBag.roleDescription })
         </th>
     </tr>
 

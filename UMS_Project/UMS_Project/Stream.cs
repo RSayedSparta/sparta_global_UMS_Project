@@ -25,7 +25,6 @@ namespace UMS_Project
         public string specialization { get; set; }
         public string duration { get; set; }
         public string curriculum { get; set; }
-        public string course_criteria { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cohort> Cohorts { get; set; }

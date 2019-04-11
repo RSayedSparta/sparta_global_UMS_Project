@@ -17,11 +17,11 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Roles
-        public ActionResult Index(string sort_Order, string searchString)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             {
-                ViewBag.NameSortParm1 = String.IsNullOrEmpty(sort_Order) ? "roleName_desc" : "";
-                ViewBag.NameSortParm1 = String.IsNullOrEmpty(sort_Order) ? "roleDescription_desc" : "";
+                ViewBag.roleName = String.IsNullOrEmpty(sortOrder) ? "roleName_desc" : "";
+                ViewBag.roleDescription = String.IsNullOrEmpty(sortOrder) ? "roleDescription_desc" : "";
 
                 var roles = from r in db.Roles
                             select r;
@@ -31,7 +31,7 @@ namespace UMS_Project.Controllers
                     roles = roles.Where(r => r.roleName.Contains(searchString)
                                            || r.roleDescription.Contains(searchString));
                 }
-                switch (sort_Order)
+                switch (sortOrder)
                 {
                     case "roleName_desc":
                         roles = roles.OrderByDescending(r => r.roleName);

@@ -18,8 +18,8 @@ namespace UMS_Project.Controllers
         private User_ManagementDBEntities db = new User_ManagementDBEntities();
 
         // GET: Cohorts
-<<<<<<< HEAD
-        public ActionResult Index(string sortOrder, string Search_Data)
+
+        public ActionResult Index(string sortOrder, string SearchData)
         {
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "cohortName_desc" : "";
@@ -32,10 +32,10 @@ namespace UMS_Project.Controllers
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "streamName_desc" : "";
 
             var cohort = from c in db.Cohorts
-                        select c;
-            if (!String.IsNullOrEmpty(Search_Data))
+                         select c;
+            if (!String.IsNullOrEmpty(SearchData))
             {
-                cohort = cohort.Where(c => c.cohortName.ToUpper().Contains(Search_Data.ToUpper()));
+                cohort = cohort.Where(c => c.cohortName.ToUpper().Contains(SearchData.ToUpper()));
             }
 
             switch (sortOrder)
@@ -69,47 +69,47 @@ namespace UMS_Project.Controllers
                     break;
             }
 
-            var cohorts = db.Cohorts.Include(c => c.Stream);
+            var cohorts = db.Cohorts.Include(c => c.Stream).Include(c => c.Trainers);
             return View(cohorts.ToList());
-=======
-        public ActionResult Index(int? id)
-        {
-            if (id == null)
-            {
-                var cohorts = db.Cohorts.Include(c => c.Stream);
-                return View(cohorts.ToList());
-            }
-            else
-            {
-                var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id);
-                return View(cohorts.ToList());
-            }
-
->>>>>>> 7bbcab4065edffd8853a349dc2c68bd6d1ae0e8e
         }
+            //public ActionResult Index(int? id)
+            //{
+            //    if (id == null)
+            //    {
+            //        var cohorts = db.Cohorts.Include(c => c.Stream).Include(c => c.Trainers);
+            //        return View(cohorts.ToList());
+            //    }
+            //    else
+            //    {
+            //        var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id).Include(c => c.Trainers);
+            //        return View(cohorts.ToList());
+            //    }
 
-        // GET: Cohorts/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+
+            //}
+
+            // GET: Cohorts/Details/5
+            public ActionResult Details(int? id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cohort cohort = db.Cohorts.Find(id);
+                if (cohort == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cohort);
             }
-            Cohort cohort = db.Cohorts.Find(id);
-            if (cohort == null)
+
+            // GET: Cohorts/Create
+            public ActionResult Create()
             {
-                return HttpNotFound();
+                ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName");
+                return View();
             }
-            return View(cohort);
-        }
-
-        // GET: Cohorts/Create
-        public ActionResult Create()
-        {
-            ViewBag.streamID = new SelectList(db.Streams, "streamID", "streamName");
-            return View();
-        }
-
+        
         // POST: Cohorts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -194,6 +194,9 @@ namespace UMS_Project.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+
         }
+
+      
     }
 }
