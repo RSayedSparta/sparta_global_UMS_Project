@@ -11,15 +11,30 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Trainer
     {
-        public int trainerID { get; set; }
-        public string trainerName { get; set; }
-        public int userID { get; set; }
-        public int cohortID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Trainer()
+        {
+            this.Cohorts = new HashSet<Cohort>();
+        }
     
+        [Required]
+        public int trainerID { get; set; }
+        [Required]
+        [DisplayName("Trainer Name")]
+        public string trainerName { get; set; }
+        [Required]
+        public int userID { get; set; }
+        [Required]
+        public int cohortID { get; set; }
+
         public virtual Cohort Cohort { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cohort> Cohorts { get; set; }
     }
 }

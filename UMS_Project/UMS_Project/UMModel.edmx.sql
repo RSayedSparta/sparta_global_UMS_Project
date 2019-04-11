@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/08/2019 09:56:12
+-- Date Created: 04/11/2019 10:01:52
 -- Generated from EDMX file: C:\Users\tech-w94a\Engineering26\Week11\sparta_global_UMS_Project\UMS_Project\UMS_Project\UMModel.edmx
 -- --------------------------------------------------
 
@@ -70,7 +70,8 @@ CREATE TABLE [dbo].[Cohorts] (
     [clocation] varchar(max)  NULL,
     [maximumSeats] int  NULL,
     [minimumSeats] int  NULL,
-    [streamID] int  NOT NULL
+    [streamID] int  NOT NULL,
+    [trainer] varchar(50)  NULL
 );
 GO
 
@@ -88,7 +89,8 @@ CREATE TABLE [dbo].[Streams] (
     [streamName] varchar(50)  NULL,
     [specialization] varchar(50)  NULL,
     [duration] varchar(max)  NULL,
-    [curriculum] varchar(max)  NULL
+    [curriculum] varchar(max)  NULL,
+    [course_criteria] varchar(50)  NULL
 );
 GO
 

@@ -30,7 +30,8 @@
         
 =======
         
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
+
+        <AssociationConnector Association="User_ManagementDBModel.FK_Trainer_Cohort" />&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
 =======
         
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c16366d8f5a3fc02e631b1170ea6317adf2d99b

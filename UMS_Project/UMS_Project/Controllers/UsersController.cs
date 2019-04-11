@@ -62,18 +62,27 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Users/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, User user)
         {
+            if(user != null)
+            {
+                User u = db.Users.Find(user.userID);
+                return View(user);
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            else
             {
-                return HttpNotFound();
+                User us = db.Users.Find(id);
+                if (us == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(us);
             }
-            return View(user);
+            
         }
 
         // GET: Users/Create
