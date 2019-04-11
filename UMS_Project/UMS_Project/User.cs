@@ -12,6 +12,7 @@ namespace UMS_Project
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class User
     {
@@ -31,8 +32,16 @@ namespace UMS_Project
         public string passwordHash { get; set; }
         public int roleID { get; set; }
         public int cohortID { get; set; }
+        [NotMapped]
+        [Required]
         [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
         public string password { get; set; }
+        [NotMapped] 
+        [Required]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
+        [Compare("Password")]
+        [DataType(DataType.Password)]
         public string confirmPassword { get; set; }
 
         public virtual Cohort Cohort { get; set; }
