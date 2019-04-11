@@ -43,7 +43,7 @@ namespace UMS_Project.Controllers
         public ActionResult Create()
         {
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName");
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName");
+            ViewBag.userID = new SelectList(db.Users.Where(t=> t.roleID == 2), "userID", "email");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace UMS_Project.Controllers
             }
 
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
+            ViewBag.userID = new SelectList(db.Users.Where(t => t.roleID == 2), "userID", "email", trainer.userID);
             return View(trainer);
         }
 
@@ -79,7 +79,7 @@ namespace UMS_Project.Controllers
                 return HttpNotFound();
             }
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
+            ViewBag.userID = new SelectList(db.Users.Where(t => t.roleID == 2), "userID", "email", trainer.userID);
             return View(trainer);
         }
 
@@ -97,7 +97,7 @@ namespace UMS_Project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", trainer.cohortID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "firstName", trainer.userID);
+            ViewBag.userID = new SelectList(db.Users.Where(t => t.roleID == 2), "userID", "email", trainer.userID);
             return View(trainer);
         }
 

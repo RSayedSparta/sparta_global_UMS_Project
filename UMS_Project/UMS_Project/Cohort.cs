@@ -24,6 +24,7 @@ namespace UMS_Project
         }
 
         [Required]
+        [DisplayName("Cohort")]
         public int cohortID { get; set; }
         [Required]
         [DisplayName("Cohort Name")]
