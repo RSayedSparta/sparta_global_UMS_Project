@@ -18,6 +18,7 @@
           <Property Name="maximumSeats" Type="int" />
           <Property Name="minimumSeats" Type="int" />
           <Property Name="streamID" Type="int" Nullable="false" />
+          <Property Name="trainer" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DeletedUsers">
           <Key>
@@ -52,6 +53,7 @@
           <Property Name="specialization" Type="varchar" MaxLength="50" />
           <Property Name="duration" Type="varchar(max)" />
           <Property Name="curriculum" Type="varchar(max)" />
+          <Property Name="course_criteria" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Trainers">
           <Key>
@@ -64,7 +66,7 @@
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="userID"/>
+            <PropertyRef Name="userID" />
           </Key>
           <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="firstName" Type="varchar" MaxLength="50" />
@@ -78,18 +80,6 @@
           <Property Name="cohortID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Cohort__streamID__3A81B327">
-          <End Role="Streams" Type="Self.Streams" Multiplicity="1" />
-          <End Role="Cohorts" Type="Self.Cohorts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Streams">
-              <PropertyRef Name="streamID" />
-            </Principal>
-            <Dependent Role="Cohorts">
-              <PropertyRef Name="streamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      <Association Name="FK__Cohorts__streamI__6477ECF3">
           <End Role="Streams" Type="Self.Streams" Multiplicity="1" />
           <End Role="Cohorts" Type="Self.Cohorts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -160,10 +150,6 @@
             <End Role="Streams" EntitySet="Streams" />
             <End Role="Cohorts" EntitySet="Cohorts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cohorts__streamI__6477ECF3" Association="Self.FK__Cohorts__streamI__6477ECF3">
-            <End Role="Streams" EntitySet="Streams" />
-            <End Role="Cohorts" EntitySet="Cohorts" />
-          </AssociationSet>
           <AssociationSet Name="FK__Trainer__cohortI__4222D4EF" Association="Self.FK__Trainer__cohortI__4222D4EF">
             <End Role="Cohorts" EntitySet="Cohorts" />
             <End Role="Trainers" EntitySet="Trainers" />
@@ -229,6 +215,7 @@
           <NavigationProperty Name="Stream" Relationship="User_ManagementDBModel.FK__Cohort__streamID__3A81B327" FromRole="Cohort" ToRole="Stream" />
           <NavigationProperty Name="Trainers" Relationship="User_ManagementDBModel.FK__Trainer__cohortI__4222D4EF" FromRole="Cohort" ToRole="Trainer" />
           <NavigationProperty Name="Users" Relationship="User_ManagementDBModel.FK__Users__cohortID__3E52440B" FromRole="Cohort" ToRole="User" />
+          <Property Name="trainer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -249,6 +236,7 @@
           <Property Name="duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cohorts" Relationship="User_ManagementDBModel.FK__Cohort__streamID__3A81B327" FromRole="Stream" ToRole="Cohort" />
+          <Property Name="course_criteria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Trainer">
           <Key>
@@ -364,7 +352,8 @@
     <EntitySetMapping Name="Cohorts">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Cohort)">
         <MappingFragment StoreEntitySet="Cohorts">
-          <ScalarProperty Name="cohortID" ColumnName="cohortID" />
+          <ScalarProperty Name="trainer" ColumnName="trainer" />
+                <ScalarProperty Name="cohortID" ColumnName="cohortID" />
           <ScalarProperty Name="cohortName" ColumnName="cohortName" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="endDate" ColumnName="endDate" />
@@ -388,7 +377,8 @@
     <EntitySetMapping Name="Streams">
       <EntityTypeMapping TypeName="IsTypeOf(User_ManagementDBModel.Stream)">
         <MappingFragment StoreEntitySet="Streams">
-          <ScalarProperty Name="streamID" ColumnName="streamID" />
+          <ScalarProperty Name="course_criteria" ColumnName="course_criteria" />
+                <ScalarProperty Name="streamID" ColumnName="streamID" />
           <ScalarProperty Name="streamName" ColumnName="streamName" />
           <ScalarProperty Name="specialization" ColumnName="specialization" />
           <ScalarProperty Name="duration" ColumnName="duration" />
