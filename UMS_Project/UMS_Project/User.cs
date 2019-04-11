@@ -40,7 +40,7 @@ namespace UMS_Project
         [NotMapped] 
         [Required]
         [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[A-Za-z\d@$!%*#?&]{8,}$", ErrorMessage = "Must contain at least one lowercase letter, one uppercase letter and one number")]
-        [Compare("Password")]
+        [Compare("password")]
         [DataType(DataType.Password)]
         public string confirmPassword { get; set; }
 
