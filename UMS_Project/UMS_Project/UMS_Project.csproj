@@ -274,6 +274,7 @@
     <Content Include="Views\Login\Details.cshtml" />
     <Content Include="Views\DeletedUsers\Restore.cshtml" />
     <Content Include="Views\DeletedUsers\Index.cshtml" />
+    <Content Include="Views\Shared\LoginNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,10 +21,6 @@ namespace UMS_Project.Controllers
         // GET: Cohorts
         public ActionResult Index(int? id)
         {
-<<<<<<< HEAD
-            var cohorts = db.Cohorts.Include(c => c.Stream).Include(c => c.Users);
-            return View(cohorts.ToList());
-=======
             if (id == null)
             {
                 var cohorts = db.Cohorts.Include(c => c.Stream);
@@ -35,23 +31,21 @@ namespace UMS_Project.Controllers
                 var cohorts = db.Cohorts.Where(c => c.Stream.streamID == id);
                 return View(cohorts.ToList());
             }
-
->>>>>>> 7bbcab4065edffd8853a349dc2c68bd6d1ae0e8e
         }
 
-        public ActionResult Index(int? id, int? userID)
-        {
-            var viewModel = new CohortUsers();
-            viewModel.Cohorts = db.Cohorts
-                .Include(c => c.Users)
-                .Include(c => c.Users.Select(c => c.firstName))
-                .OrderBy(c => c.cohortName);
+        //public ActionResult Index(int? id, int? userID)
+        //{
+        //    var viewModel = new CohortUsers();
+        //    viewModel.Cohorts = db.Cohorts
+        //        .Include(c => c.Users)
+        //        .Include(c => c.Users.Select(c => c.firstName))
+        //        .OrderBy(c => c.cohortName);
 
-            if (id != null)
-            {
+        //    if (id != null)
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         // GET: Cohorts/Details/5
         public ActionResult Details(int? id)

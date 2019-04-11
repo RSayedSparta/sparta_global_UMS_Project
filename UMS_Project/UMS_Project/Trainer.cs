@@ -14,6 +14,12 @@ namespace UMS_Project
     
     public partial class Trainer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Trainer()
+        {
+            this.Cohorts = new HashSet<Cohort>();
+        }
+    
         public int trainerID { get; set; }
         public string trainerName { get; set; }
         public int userID { get; set; }
@@ -21,5 +27,7 @@ namespace UMS_Project
     
         public virtual Cohort Cohort { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cohort> Cohorts { get; set; }
     }
 }

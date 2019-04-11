@@ -29,6 +29,7 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                     <li>@Html.ActionLink("Role", "Index", "Roles")</li>
                     <li>@Html.ActionLink("Stream", "Index", "Streams")</li>
                     <li>@Html.ActionLink("Cohort", "Index", "Cohorts")</li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Streams List
@@ -43,20 +44,14 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                                     foreach (var item in query)
                                     {
                                         string name = item.streamName;
-                                        <li>@Html.ActionLink((@name).ToString(), "Index", "Cohorts", new { @id = item.streamID } , null)</li>
+                                        <li>@Html.ActionLink((@name).ToString(), "Index", "Cohorts", new { @id = item.streamID }, null)</li>
                                     }
                                 }
                             </ul>
                         </div>
                     </li>
-                    @if (@Session["Email"] != null)
-                    {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a>Hello, @Session["Name"] @Session["Email"]</a></li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                    </ul>
-                    }
                 </ul>
+                @Html.Partial("LoginNavbar")
             </div>
         </div>
     </div>
