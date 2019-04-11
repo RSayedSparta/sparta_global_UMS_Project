@@ -17,20 +17,25 @@
         <AssociationConnector Association="User_ManagementDBModel.FK__Trainer__userID__412EB0B6" />
 <<<<<<< HEAD
 <<<<<<< HEAD
-        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.25" PointY="4.875" />
 =======
 <<<<<<< HEAD
-        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="10.5" PointY="1.875" />
+        
 =======
-        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.125" PointY="0.5" />
->>>>>>> 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
->>>>>>> 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
 =======
 <<<<<<< HEAD
-        <EntityTypeShape EntityType="User_ManagementDBModel.DeletedUser" Width="1.5" PointX="5.25" PointY="5.125" />
+        
 =======
         
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
+=======
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9b133a206d3985d679adafc71cf9aab26e5ecb3b
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt; 4af5ecbee9f9c4d46b1b204a22905ecdd0387aa9
 =======
         
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c16366d8f5a3fc02e631b1170ea6317adf2d99b
