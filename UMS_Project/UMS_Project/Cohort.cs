@@ -20,6 +20,7 @@ namespace UMS_Project
             this.Trainers = new HashSet<Trainer>();
             this.Users = new HashSet<User>();
         }
+<<<<<<< HEAD
     
         public int cohortID { get; set; }
         public string cohortName { get; set; }
@@ -28,6 +29,24 @@ namespace UMS_Project
         public Nullable<bool> hasTA { get; set; }
         public string clocation { get; set; }
         public Nullable<int> maximumSeats { get; set; }
+=======
+        [Required]
+
+        public int cohortID { get; set; }
+        [Display(Name = "Name of Cohort")]
+        public string cohortName { get; set; }
+        [Display(Name = "Start Date")]
+        public Nullable<System.DateTime> startDate { get; set; }
+        [Display(Name = "End Date")]
+        public Nullable<System.DateTime> endDate { get; set; }
+        [Display(Name = "Has Teaching Assistant")]
+        public Nullable<bool> hasTA { get; set; }
+        [Display(Name = "Academy Location")]
+        public string clocation { get; set; }
+        [Display(Name = "Maximum no. of seats")]
+        public Nullable<int> maximumSeats { get; set; }
+        [Display(Name = "Minimum no. of seats")]
+>>>>>>> 77241bcb475dd91532076b2ad600ce2649c3cdd0
         public Nullable<int> minimumSeats { get; set; }
         public int streamID { get; set; }
         public Nullable<int> trainerID { get; set; }

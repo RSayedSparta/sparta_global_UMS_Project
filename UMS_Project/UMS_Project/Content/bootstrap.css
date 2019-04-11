@@ -4166,6 +4166,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
+  max-height: 50px;
+  max-width: 100px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4272,11 +4274,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
-  float: left;
-  height: 50px;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    background: url("~/Content/spartaglobal1.png") no-repeat;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {

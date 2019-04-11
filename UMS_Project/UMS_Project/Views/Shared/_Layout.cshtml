@@ -17,9 +17,13 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
                 <a href="@Url.Action("Index", "Home")" >
                     <img alt="Widget View" src="@Url.Content("~/Content/sparta.png")"style="height:50px">
                 </a>
+=======
+               <img src="~/Content/spartaglobal1.png" alt="Sparta Global" />
+>>>>>>> 77241bcb475dd91532076b2ad600ce2649c3cdd0
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -50,8 +54,20 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
                             </ul>
                         </div>
                     </li>
+<<<<<<< HEAD
                 </ul>
                 @Html.Partial("LoginNavbar")
+=======
+                    <li class="nav navbar-right">
+                        @if (@Session["Email"] != null)
+                        {
+                            <div class="navbar-text glyphicon glyphicon-user"><a>Hello, @Session["Name"]! @Session["Email"]</a></div>
+                        }
+                        <div class="navbar-text glyphicon glyphicon-log-out">@Html.ActionLink("Logout", "Logout", "Login")</div>
+                    </li>
+                </ul>
+
+>>>>>>> 77241bcb475dd91532076b2ad600ce2649c3cdd0
             </div>
         </div>
     </div>
@@ -59,7 +75,7 @@ background: linear-gradient(90deg, rgba(87,61,106,1) 0%, rgba(132,116,161,1) 16%
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Sparta Global</p>
         </footer>
     </div>
 

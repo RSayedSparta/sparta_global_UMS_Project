@@ -21,6 +21,10 @@ namespace UMS_Project
         }
     
         public int trainerID { get; set; }
+<<<<<<< HEAD
+=======
+        [Display(Name = "Name of Trainer")]
+>>>>>>> 77241bcb475dd91532076b2ad600ce2649c3cdd0
         public string trainerName { get; set; }
         public int userID { get; set; }
         public int cohortID { get; set; }
