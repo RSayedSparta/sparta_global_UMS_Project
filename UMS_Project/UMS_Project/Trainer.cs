@@ -23,6 +23,7 @@ namespace UMS_Project
         }
     
         [Required]
+        [DisplayName("Trainer")]
         public int trainerID { get; set; }
         [Required]
         [DisplayName("Trainer Name")]

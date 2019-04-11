@@ -11,6 +11,7 @@ namespace UMS_Project
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Stream
@@ -20,7 +21,8 @@ namespace UMS_Project
         {
             this.Cohorts = new HashSet<Cohort>();
         }
-    
+
+        [DisplayName("Stream")]
         public int streamID { get; set; }
         [Required]
         [Display(Name = "Stream Name")]

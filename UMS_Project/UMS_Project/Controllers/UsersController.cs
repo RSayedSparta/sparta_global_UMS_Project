@@ -62,13 +62,8 @@ namespace UMS_Project.Controllers
         }
 
         // GET: Users/Details/5
-        public ActionResult Details(int? id, User user)
+        public ActionResult Details(int? id)
         {
-            if(user != null)
-            {
-                User u = db.Users.Find(user.userID);
-                return View(user);
-            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -181,7 +176,8 @@ namespace UMS_Project.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", user);
+                int id = (int)user.userID;
+                return RedirectToAction("Details/"+ id);
             }
             ViewBag.cohortID = new SelectList(db.Cohorts, "cohortID", "cohortName", user.cohortID);
             ViewBag.roleID = new SelectList(db.Roles, "roleID", "roleName", user.roleID);

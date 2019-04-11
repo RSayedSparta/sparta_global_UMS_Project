@@ -21,7 +21,7 @@ namespace UMS_Project
         {
             this.Users = new HashSet<User>();
         }
-
+        [DisplayName("Role")]
         public int roleID { get; set; }
         [DisplayName("Role Name")]
         [Required]
